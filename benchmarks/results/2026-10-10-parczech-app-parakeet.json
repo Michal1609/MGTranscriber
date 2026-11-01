@@ -1,0 +1,3747 @@
+{
+ "run": "app-parakeet",
+ "dataset": "parczech",
+ "mode": "app",
+ "engine": "parakeet",
+ "model": "nemo-parakeet-tdt-0.6b-v3",
+ "device": "GPU",
+ "utterances": 591,
+ "sessions": [
+  {
+   "id": "session00",
+   "seconds": 600.9,
+   "transcribe_seconds": 132.1,
+   "rtf": 0.2199,
+   "word_errors": 114,
+   "ref_words": 1102,
+   "wer_whole": 10.34,
+   "der": 3.61,
+   "der_no_overlap": 3.61,
+   "miss": 2.53,
+   "false_alarm": 0.12,
+   "confusion": 0.96,
+   "ref_speech_s": 597.6,
+   "speakers_ref": 4,
+   "speakers_hyp": 4
+  },
+  {
+   "id": "session01",
+   "seconds": 601.8,
+   "transcribe_seconds": 43.3,
+   "rtf": 0.072,
+   "word_errors": 134,
+   "ref_words": 1100,
+   "wer_whole": 12.18,
+   "der": 4.05,
+   "der_no_overlap": 4.05,
+   "miss": 3.02,
+   "false_alarm": 0.07,
+   "confusion": 0.95,
+   "ref_speech_s": 597.2,
+   "speakers_ref": 6,
+   "speakers_hyp": 6
+  },
+  {
+   "id": "session02",
+   "seconds": 610.2,
+   "transcribe_seconds": 42.0,
+   "rtf": 0.0689,
+   "word_errors": 114,
+   "ref_words": 1088,
+   "wer_whole": 10.48,
+   "der": 3.14,
+   "der_no_overlap": 3.14,
+   "miss": 2.72,
+   "false_alarm": 0.21,
+   "confusion": 0.21,
+   "ref_speech_s": 605.0,
+   "speakers_ref": 6,
+   "speakers_hyp": 6
+  },
+  {
+   "id": "session03",
+   "seconds": 602.9,
+   "transcribe_seconds": 43.1,
+   "rtf": 0.0715,
+   "word_errors": 90,
+   "ref_words": 1125,
+   "wer_whole": 8.0,
+   "der": 1.88,
+   "der_no_overlap": 1.88,
+   "miss": 1.77,
+   "false_alarm": 0.11,
+   "confusion": 0.0,
+   "ref_speech_s": 599.0,
+   "speakers_ref": 5,
+   "speakers_hyp": 5
+  },
+  {
+   "id": "session04",
+   "seconds": 606.5,
+   "transcribe_seconds": 42.2,
+   "rtf": 0.0695,
+   "word_errors": 126,
+   "ref_words": 1092,
+   "wer_whole": 11.54,
+   "der": 4.44,
+   "der_no_overlap": 4.44,
+   "miss": 3.81,
+   "false_alarm": 0.2,
+   "confusion": 0.44,
+   "ref_speech_s": 601.3,
+   "speakers_ref": 5,
+   "speakers_hyp": 5
+  },
+  {
+   "id": "session05",
+   "seconds": 524.8,
+   "transcribe_seconds": 37.9,
+   "rtf": 0.0723,
+   "word_errors": 104,
+   "ref_words": 892,
+   "wer_whole": 11.66,
+   "der": 1.62,
+   "der_no_overlap": 1.62,
+   "miss": 1.28,
+   "false_alarm": 0.14,
+   "confusion": 0.2,
+   "ref_speech_s": 522.2,
+   "speakers_ref": 4,
+   "speakers_hyp": 4
+  },
+  {
+   "id": "session06",
+   "seconds": 614.7,
+   "transcribe_seconds": 44.8,
+   "rtf": 0.0729,
+   "word_errors": 64,
+   "ref_words": 1136,
+   "wer_whole": 5.63,
+   "der": 3.08,
+   "der_no_overlap": 3.08,
+   "miss": 2.97,
+   "false_alarm": 0.12,
+   "confusion": 0.0,
+   "ref_speech_s": 611.5,
+   "speakers_ref": 5,
+   "speakers_hyp": 5
+  },
+  {
+   "id": "session07",
+   "seconds": 522.4,
+   "transcribe_seconds": 40.9,
+   "rtf": 0.0783,
+   "word_errors": 76,
+   "ref_words": 985,
+   "wer_whole": 7.72,
+   "der": 1.27,
+   "der_no_overlap": 1.27,
+   "miss": 1.19,
+   "false_alarm": 0.08,
+   "confusion": 0.0,
+   "ref_speech_s": 519.8,
+   "speakers_ref": 4,
+   "speakers_hyp": 4
+  },
+  {
+   "id": "session08",
+   "seconds": 568.5,
+   "transcribe_seconds": 41.9,
+   "rtf": 0.0737,
+   "word_errors": 112,
+   "ref_words": 1148,
+   "wer_whole": 9.76,
+   "der": 1.72,
+   "der_no_overlap": 1.72,
+   "miss": 1.15,
+   "false_alarm": 0.13,
+   "confusion": 0.45,
+   "ref_speech_s": 565.2,
+   "speakers_ref": 4,
+   "speakers_hyp": 4
+  }
+ ],
+ "audio_seconds": 5252.7,
+ "rtf": 0.0891,
+ "seconds_total": 468.2,
+ "wer_whole": 9.66,
+ "der": 2.81,
+ "speakers_ref": 43,
+ "speakers_hyp": 43,
+ "date": "2026-10-10",
+ "gpu": "NVIDIA GeForce RTX 5070 Laptop GPU, 8151 MiB",
+ "python": "3.12.14",
+ "warnings": [],
+ "wer": 10.05,
+ "wer_ci": [
+  9.25,
+  10.84
+ ],
+ "cer": 4.15,
+ "cer_ci": [
+  3.72,
+  4.61
+ ],
+ "word_errors_total": 972,
+ "ref_words_total": 9668,
+ "wer_no_digits": 10.22,
+ "wer_no_digits_ci": [
+  9.35,
+  11.08
+ ],
+ "utterances_no_digits": 521,
+ "word_errors": [
+  2,
+  2,
+  2,
+  0,
+  2,
+  1,
+  2,
+  0,
+  2,
+  0,
+  1,
+  1,
+  1,
+  3,
+  2,
+  1,
+  4,
+  1,
+  3,
+  0,
+  0,
+  1,
+  2,
+  5,
+  3,
+  2,
+  0,
+  0,
+  1,
+  2,
+  2,
+  4,
+  2,
+  2,
+  0,
+  2,
+  0,
+  2,
+  2,
+  2,
+  4,
+  4,
+  2,
+  2,
+  1,
+  1,
+  4,
+  2,
+  0,
+  0,
+  2,
+  0,
+  2,
+  2,
+  6,
+  0,
+  0,
+  2,
+  1,
+  0,
+  3,
+  2,
+  0,
+  0,
+  2,
+  1,
+  3,
+  0,
+  1,
+  0,
+  2,
+  2,
+  1,
+  0,
+  3,
+  4,
+  4,
+  0,
+  3,
+  1,
+  1,
+  1,
+  2,
+  1,
+  1,
+  0,
+  0,
+  0,
+  3,
+  3,
+  3,
+  3,
+  2,
+  2,
+  3,
+  3,
+  0,
+  11,
+  1,
+  1,
+  1,
+  4,
+  0,
+  3,
+  1,
+  2,
+  1,
+  2,
+  1,
+  6,
+  3,
+  4,
+  1,
+  2,
+  0,
+  2,
+  2,
+  4,
+  5,
+  1,
+  4,
+  2,
+  1,
+  2,
+  0,
+  2,
+  0,
+  0,
+  2,
+  3,
+  1,
+  0,
+  2,
+  4,
+  2,
+  0,
+  1,
+  1,
+  1,
+  2,
+  1,
+  1,
+  3,
+  2,
+  1,
+  1,
+  1,
+  1,
+  1,
+  3,
+  1,
+  1,
+  6,
+  1,
+  1,
+  0,
+  6,
+  3,
+  0,
+  4,
+  7,
+  1,
+  0,
+  0,
+  0,
+  0,
+  0,
+  8,
+  3,
+  0,
+  1,
+  0,
+  2,
+  2,
+  2,
+  2,
+  3,
+  3,
+  3,
+  0,
+  1,
+  1,
+  1,
+  2,
+  4,
+  2,
+  2,
+  2,
+  0,
+  1,
+  0,
+  1,
+  0,
+  4,
+  2,
+  5,
+  3,
+  2,
+  0,
+  1,
+  1,
+  3,
+  3,
+  0,
+  2,
+  1,
+  4,
+  0,
+  0,
+  2,
+  2,
+  1,
+  1,
+  1,
+  3,
+  2,
+  3,
+  3,
+  1,
+  4,
+  1,
+  1,
+  3,
+  1,
+  3,
+  0,
+  0,
+  1,
+  5,
+  2,
+  1,
+  2,
+  0,
+  0,
+  1,
+  1,
+  0,
+  0,
+  0,
+  0,
+  2,
+  3,
+  1,
+  1,
+  3,
+  1,
+  1,
+  1,
+  2,
+  1,
+  0,
+  3,
+  0,
+  0,
+  0,
+  0,
+  6,
+  2,
+  3,
+  4,
+  0,
+  0,
+  4,
+  2,
+  0,
+  0,
+  3,
+  4,
+  2,
+  0,
+  1,
+  1,
+  2,
+  3,
+  4,
+  1,
+  2,
+  0,
+  2,
+  0,
+  3,
+  4,
+  3,
+  1,
+  3,
+  1,
+  3,
+  1,
+  1,
+  1,
+  2,
+  2,
+  5,
+  0,
+  1,
+  2,
+  0,
+  3,
+  1,
+  2,
+  5,
+  0,
+  2,
+  1,
+  1,
+  3,
+  2,
+  0,
+  2,
+  3,
+  2,
+  6,
+  0,
+  5,
+  3,
+  3,
+  1,
+  0,
+  0,
+  3,
+  1,
+  1,
+  1,
+  0,
+  4,
+  3,
+  3,
+  1,
+  8,
+  2,
+  1,
+  5,
+  1,
+  0,
+  0,
+  2,
+  2,
+  5,
+  1,
+  1,
+  0,
+  0,
+  0,
+  1,
+  1,
+  3,
+  1,
+  0,
+  4,
+  3,
+  1,
+  2,
+  2,
+  4,
+  4,
+  1,
+  7,
+  3,
+  6,
+  1,
+  0,
+  1,
+  1,
+  1,
+  3,
+  2,
+  2,
+  2,
+  2,
+  9,
+  1,
+  5,
+  3,
+  0,
+  1,
+  2,
+  0,
+  0,
+  1,
+  0,
+  1,
+  2,
+  1,
+  0,
+  0,
+  5,
+  2,
+  0,
+  2,
+  2,
+  2,
+  2,
+  2,
+  0,
+  1,
+  4,
+  3,
+  0,
+  2,
+  1,
+  0,
+  2,
+  1,
+  1,
+  0,
+  1,
+  1,
+  4,
+  1,
+  0,
+  0,
+  1,
+  0,
+  2,
+  0,
+  0,
+  0,
+  0,
+  1,
+  1,
+  0,
+  0,
+  1,
+  5,
+  3,
+  2,
+  0,
+  1,
+  0,
+  1,
+  1,
+  1,
+  3,
+  1,
+  2,
+  0,
+  2,
+  1,
+  0,
+  1,
+  1,
+  1,
+  0,
+  1,
+  2,
+  1,
+  0,
+  1,
+  1,
+  1,
+  1,
+  2,
+  1,
+  1,
+  3,
+  4,
+  0,
+  2,
+  5,
+  1,
+  2,
+  0,
+  1,
+  0,
+  1,
+  1,
+  1,
+  3,
+  2,
+  3,
+  0,
+  4,
+  3,
+  0,
+  1,
+  2,
+  2,
+  0,
+  1,
+  2,
+  0,
+  1,
+  2,
+  1,
+  0,
+  2,
+  0,
+  0,
+  0,
+  2,
+  3,
+  2,
+  3,
+  0,
+  0,
+  2,
+  0,
+  2,
+  2,
+  0,
+  2,
+  5,
+  1,
+  1,
+  3,
+  3,
+  2,
+  3,
+  0,
+  1,
+  2,
+  0,
+  0,
+  2,
+  1,
+  1,
+  1,
+  2,
+  2,
+  2,
+  2,
+  0,
+  2,
+  0,
+  2,
+  0,
+  1,
+  2,
+  0,
+  0,
+  2,
+  0,
+  1,
+  1,
+  1,
+  1,
+  0,
+  1,
+  1,
+  0,
+  2,
+  2,
+  3,
+  1,
+  1,
+  0,
+  1,
+  2,
+  0,
+  2,
+  3,
+  0,
+  0,
+  1,
+  1,
+  4,
+  7,
+  8,
+  1,
+  1,
+  2,
+  0,
+  4,
+  2,
+  2,
+  0,
+  0,
+  1,
+  0,
+  0,
+  0,
+  3,
+  1,
+  3,
+  1,
+  2,
+  0,
+  0,
+  1,
+  2,
+  2,
+  2,
+  2,
+  2,
+  0,
+  2,
+  0,
+  1,
+  1,
+  5,
+  4
+ ],
+ "ref_words": [
+  8,
+  11,
+  10,
+  55,
+  19,
+  16,
+  46,
+  8,
+  9,
+  19,
+  5,
+  24,
+  11,
+  28,
+  6,
+  11,
+  26,
+  13,
+  36,
+  14,
+  18,
+  50,
+  10,
+  29,
+  9,
+  14,
+  37,
+  9,
+  11,
+  28,
+  10,
+  10,
+  26,
+  23,
+  5,
+  14,
+  10,
+  7,
+  16,
+  10,
+  16,
+  6,
+  5,
+  12,
+  26,
+  7,
+  6,
+  22,
+  5,
+  10,
+  8,
+  14,
+  11,
+  19,
+  6,
+  15,
+  5,
+  8,
+  9,
+  11,
+  12,
+  13,
+  7,
+  5,
+  16,
+  17,
+  23,
+  5,
+  14,
+  6,
+  9,
+  15,
+  7,
+  5,
+  6,
+  29,
+  27,
+  22,
+  20,
+  31,
+  5,
+  21,
+  30,
+  5,
+  6,
+  11,
+  6,
+  6,
+  37,
+  15,
+  10,
+  8,
+  30,
+  33,
+  12,
+  9,
+  31,
+  31,
+  6,
+  5,
+  5,
+  14,
+  6,
+  18,
+  8,
+  9,
+  9,
+  18,
+  8,
+  26,
+  7,
+  7,
+  7,
+  5,
+  7,
+  19,
+  10,
+  19,
+  37,
+  5,
+  16,
+  12,
+  13,
+  22,
+  9,
+  23,
+  18,
+  12,
+  8,
+  11,
+  33,
+  10,
+  12,
+  13,
+  14,
+  22,
+  5,
+  15,
+  31,
+  18,
+  6,
+  33,
+  23,
+  19,
+  6,
+  6,
+  33,
+  13,
+  31,
+  8,
+  12,
+  9,
+  22,
+  5,
+  10,
+  6,
+  36,
+  9,
+  7,
+  27,
+  19,
+  11,
+  12,
+  11,
+  6,
+  7,
+  16,
+  8,
+  7,
+  7,
+  5,
+  6,
+  8,
+  13,
+  8,
+  8,
+  11,
+  41,
+  23,
+  24,
+  6,
+  21,
+  21,
+  43,
+  33,
+  12,
+  22,
+  5,
+  23,
+  5,
+  25,
+  33,
+  14,
+  38,
+  14,
+  15,
+  21,
+  11,
+  6,
+  14,
+  30,
+  27,
+  43,
+  12,
+  24,
+  8,
+  43,
+  5,
+  10,
+  25,
+  20,
+  40,
+  15,
+  26,
+  13,
+  8,
+  47,
+  28,
+  20,
+  34,
+  11,
+  6,
+  39,
+  20,
+  26,
+  8,
+  8,
+  8,
+  37,
+  14,
+  34,
+  26,
+  15,
+  9,
+  8,
+  41,
+  6,
+  5,
+  6,
+  5,
+  16,
+  8,
+  12,
+  9,
+  16,
+  8,
+  6,
+  5,
+  12,
+  13,
+  17,
+  6,
+  8,
+  8,
+  5,
+  8,
+  29,
+  13,
+  39,
+  5,
+  7,
+  41,
+  13,
+  33,
+  12,
+  14,
+  22,
+  21,
+  17,
+  20,
+  27,
+  10,
+  13,
+  49,
+  26,
+  8,
+  6,
+  7,
+  9,
+  14,
+  18,
+  35,
+  7,
+  5,
+  10,
+  27,
+  18,
+  9,
+  10,
+  9,
+  45,
+  18,
+  25,
+  16,
+  16,
+  10,
+  7,
+  9,
+  22,
+  10,
+  20,
+  20,
+  26,
+  25,
+  11,
+  43,
+  30,
+  17,
+  8,
+  34,
+  10,
+  14,
+  5,
+  27,
+  31,
+  19,
+  6,
+  6,
+  9,
+  24,
+  22,
+  13,
+  12,
+  9,
+  21,
+  11,
+  9,
+  14,
+  28,
+  13,
+  6,
+  16,
+  7,
+  5,
+  6,
+  7,
+  7,
+  14,
+  7,
+  10,
+  20,
+  13,
+  12,
+  13,
+  16,
+  19,
+  18,
+  21,
+  14,
+  15,
+  12,
+  14,
+  10,
+  25,
+  29,
+  6,
+  17,
+  10,
+  37,
+  20,
+  8,
+  22,
+  13,
+  32,
+  29,
+  19,
+  10,
+  6,
+  6,
+  39,
+  6,
+  9,
+  15,
+  9,
+  12,
+  9,
+  15,
+  24,
+  20,
+  5,
+  17,
+  15,
+  41,
+  6,
+  8,
+  37,
+  14,
+  8,
+  34,
+  20,
+  32,
+  37,
+  22,
+  8,
+  7,
+  6,
+  5,
+  6,
+  11,
+  21,
+  6,
+  18,
+  19,
+  7,
+  5,
+  5,
+  7,
+  46,
+  26,
+  32,
+  46,
+  22,
+  6,
+  21,
+  22,
+  26,
+  21,
+  15,
+  5,
+  18,
+  5,
+  16,
+  14,
+  36,
+  41,
+  38,
+  38,
+  16,
+  9,
+  17,
+  23,
+  24,
+  24,
+  8,
+  18,
+  10,
+  11,
+  25,
+  24,
+  10,
+  6,
+  13,
+  5,
+  7,
+  19,
+  51,
+  9,
+  9,
+  9,
+  34,
+  25,
+  32,
+  10,
+  6,
+  23,
+  18,
+  42,
+  22,
+  33,
+  38,
+  30,
+  24,
+  34,
+  13,
+  53,
+  6,
+  8,
+  18,
+  12,
+  35,
+  26,
+  8,
+  8,
+  5,
+  8,
+  42,
+  39,
+  28,
+  44,
+  14,
+  8,
+  6,
+  13,
+  5,
+  7,
+  12,
+  9,
+  9,
+  9,
+  7,
+  19,
+  26,
+  23,
+  5,
+  7,
+  14,
+  10,
+  39,
+  15,
+  14,
+  23,
+  35,
+  10,
+  23,
+  10,
+  13,
+  15,
+  26,
+  25,
+  11,
+  9,
+  8,
+  5,
+  13,
+  11,
+  10,
+  10,
+  13,
+  14,
+  6,
+  14,
+  5,
+  12,
+  11,
+  9,
+  8,
+  5,
+  16,
+  7,
+  9,
+  21,
+  5,
+  14,
+  13,
+  13,
+  5,
+  9,
+  9,
+  20,
+  7,
+  9,
+  5,
+  20,
+  6,
+  11,
+  7,
+  6,
+  5,
+  9,
+  22,
+  40,
+  13,
+  6,
+  8,
+  6,
+  23,
+  30,
+  57,
+  23,
+  7,
+  11,
+  11,
+  42,
+  57,
+  29,
+  9,
+  8,
+  23,
+  12,
+  11,
+  6,
+  13,
+  6,
+  13,
+  6,
+  19,
+  8,
+  6,
+  22,
+  14,
+  10,
+  29,
+  33,
+  19,
+  10,
+  6,
+  12,
+  19,
+  11,
+  14,
+  24
+ ],
+ "items": [
+  {
+   "id": "s00c000",
+   "speaker": "KarelSchwarzenberg.1937"
+  },
+  {
+   "id": "s00c001",
+   "speaker": "KarelSchwarzenberg.1937"
+  },
+  {
+   "id": "s00c002",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c003",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c004",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c005",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c006",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c007",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c008",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c009",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c010",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c011",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c012",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c013",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c014",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c015",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c016",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c017",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c018",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c019",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c020",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c021",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c022",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c023",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c024",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c025",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c026",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c027",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c028",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c029",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c030",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c031",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c032",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c033",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c034",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c035",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c036",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c037",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c038",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c039",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c040",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c041",
+   "speaker": "StanislavKrecek"
+  },
+  {
+   "id": "s00c042",
+   "speaker": "StanislavKrecek"
+  },
+  {
+   "id": "s00c043",
+   "speaker": "StanislavKrecek"
+  },
+  {
+   "id": "s00c044",
+   "speaker": "StanislavKrecek"
+  },
+  {
+   "id": "s00c045",
+   "speaker": "StanislavKrecek"
+  },
+  {
+   "id": "s00c046",
+   "speaker": "StanislavKrecek"
+  },
+  {
+   "id": "s00c047",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c048",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c049",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c050",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c051",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c052",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c053",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c054",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c055",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c056",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c057",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c058",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s00c059",
+   "speaker": "JosefTaborsky"
+  },
+  {
+   "id": "s00c060",
+   "speaker": "JosefTaborsky"
+  },
+  {
+   "id": "s00c061",
+   "speaker": "JosefTaborsky"
+  },
+  {
+   "id": "s00c062",
+   "speaker": "JosefTaborsky"
+  },
+  {
+   "id": "s00c063",
+   "speaker": "JosefTaborsky"
+  },
+  {
+   "id": "s00c064",
+   "speaker": "JosefTaborsky"
+  },
+  {
+   "id": "s00c065",
+   "speaker": "JosefTaborsky"
+  },
+  {
+   "id": "s00c066",
+   "speaker": "JosefTaborsky"
+  },
+  {
+   "id": "s00c067",
+   "speaker": "JosefTaborsky"
+  },
+  {
+   "id": "s00c068",
+   "speaker": "JosefTaborsky"
+  },
+  {
+   "id": "s00c069",
+   "speaker": "JosefTaborsky"
+  },
+  {
+   "id": "s00c070",
+   "speaker": "JosefTaborsky"
+  },
+  {
+   "id": "s00c071",
+   "speaker": "JosefTaborsky"
+  },
+  {
+   "id": "s00c072",
+   "speaker": "JosefTaborsky"
+  },
+  {
+   "id": "s00c073",
+   "speaker": "JosefTaborsky"
+  },
+  {
+   "id": "s00c074",
+   "speaker": "JosefTaborsky"
+  },
+  {
+   "id": "s01c000",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s01c001",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s01c002",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s01c003",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s01c004",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s01c005",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s01c006",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s01c007",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s01c008",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s01c009",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s01c010",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s01c011",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s01c012",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s01c013",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s01c014",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s01c015",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s01c016",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s01c017",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s01c018",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s01c019",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s01c020",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s01c021",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s01c022",
+   "speaker": "KarelSchwarzenberg.1937"
+  },
+  {
+   "id": "s01c023",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c024",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c025",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c026",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c027",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c028",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c029",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c030",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c031",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c032",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c033",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c034",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c035",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c036",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c037",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c038",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c039",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c040",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c041",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c042",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c043",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c044",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c045",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c046",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c047",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c048",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c049",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c050",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c051",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c052",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c053",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c054",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c055",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c056",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c057",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c058",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c059",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c060",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c061",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c062",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c063",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s01c064",
+   "speaker": "JosefUhlik.1963"
+  },
+  {
+   "id": "s01c065",
+   "speaker": "JosefUhlik.1963"
+  },
+  {
+   "id": "s01c066",
+   "speaker": "JosefUhlik.1963"
+  },
+  {
+   "id": "s01c067",
+   "speaker": "JosefUhlik.1963"
+  },
+  {
+   "id": "s01c068",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s01c069",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s01c070",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s02c000",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s02c001",
+   "speaker": "ZuzanaKailova.1974"
+  },
+  {
+   "id": "s02c002",
+   "speaker": "ZuzanaKailova.1974"
+  },
+  {
+   "id": "s02c003",
+   "speaker": "ZuzanaKailova.1974"
+  },
+  {
+   "id": "s02c004",
+   "speaker": "ZuzanaKailova.1974"
+  },
+  {
+   "id": "s02c005",
+   "speaker": "ZuzanaKailova.1974"
+  },
+  {
+   "id": "s02c006",
+   "speaker": "ZuzanaKailova.1974"
+  },
+  {
+   "id": "s02c007",
+   "speaker": "ZuzanaKailova.1974"
+  },
+  {
+   "id": "s02c008",
+   "speaker": "ZuzanaKailova.1974"
+  },
+  {
+   "id": "s02c009",
+   "speaker": "ZuzanaKailova.1974"
+  },
+  {
+   "id": "s02c010",
+   "speaker": "KarelSchwarzenberg.1937"
+  },
+  {
+   "id": "s02c011",
+   "speaker": "KarelSchwarzenberg.1937"
+  },
+  {
+   "id": "s02c012",
+   "speaker": "KarelSchwarzenberg.1937"
+  },
+  {
+   "id": "s02c013",
+   "speaker": "KarelSchwarzenberg.1937"
+  },
+  {
+   "id": "s02c014",
+   "speaker": "KarelSchwarzenberg.1937"
+  },
+  {
+   "id": "s02c015",
+   "speaker": "KarelSchwarzenberg.1937"
+  },
+  {
+   "id": "s02c016",
+   "speaker": "KarelSchwarzenberg.1937"
+  },
+  {
+   "id": "s02c017",
+   "speaker": "KarelSchwarzenberg.1937"
+  },
+  {
+   "id": "s02c018",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s02c019",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s02c020",
+   "speaker": "MartinaBerdychova.1971"
+  },
+  {
+   "id": "s02c021",
+   "speaker": "KarelSchwarzenberg.1937"
+  },
+  {
+   "id": "s02c022",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c023",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c024",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c025",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c026",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c027",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c028",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c029",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c030",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c031",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c032",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c033",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c034",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c035",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c036",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c037",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c038",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c039",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c040",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c041",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c042",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s02c043",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s02c044",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s02c045",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s02c046",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s02c047",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s02c048",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s02c049",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s02c050",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s02c051",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s02c052",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s02c053",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s02c054",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s02c055",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s02c056",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s02c057",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s02c058",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s02c059",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s02c060",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s02c061",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s02c062",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s02c063",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s03c000",
+   "speaker": "MiladaHalikova.1950"
+  },
+  {
+   "id": "s03c001",
+   "speaker": "MiladaHalikova.1950"
+  },
+  {
+   "id": "s03c002",
+   "speaker": "MiladaHalikova.1950"
+  },
+  {
+   "id": "s03c003",
+   "speaker": "MiladaHalikova.1950"
+  },
+  {
+   "id": "s03c004",
+   "speaker": "MiladaHalikova.1950"
+  },
+  {
+   "id": "s03c005",
+   "speaker": "MiladaHalikova.1950"
+  },
+  {
+   "id": "s03c006",
+   "speaker": "MiladaHalikova.1950"
+  },
+  {
+   "id": "s03c007",
+   "speaker": "MiladaHalikova.1950"
+  },
+  {
+   "id": "s03c008",
+   "speaker": "MiladaHalikova.1950"
+  },
+  {
+   "id": "s03c009",
+   "speaker": "MiladaHalikova.1950"
+  },
+  {
+   "id": "s03c010",
+   "speaker": "MiladaHalikova.1950"
+  },
+  {
+   "id": "s03c011",
+   "speaker": "MiladaHalikova.1950"
+  },
+  {
+   "id": "s03c012",
+   "speaker": "MiladaHalikova.1950"
+  },
+  {
+   "id": "s03c013",
+   "speaker": "MiladaHalikova.1950"
+  },
+  {
+   "id": "s03c014",
+   "speaker": "MiladaHalikova.1950"
+  },
+  {
+   "id": "s03c015",
+   "speaker": "MiladaHalikova.1950"
+  },
+  {
+   "id": "s03c016",
+   "speaker": "MiladaHalikova.1950"
+  },
+  {
+   "id": "s03c017",
+   "speaker": "JosefUhlik.1963"
+  },
+  {
+   "id": "s03c018",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s03c019",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s03c020",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s03c021",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s03c022",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s03c023",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s03c024",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s03c025",
+   "speaker": "ZuzkaBebarovaRujbrova.1951"
+  },
+  {
+   "id": "s03c026",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s03c027",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s03c028",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s03c029",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s03c030",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s03c031",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s03c032",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s03c033",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s03c034",
+   "speaker": "JosefUhlik.1963"
+  },
+  {
+   "id": "s03c035",
+   "speaker": "JosefUhlik.1963"
+  },
+  {
+   "id": "s03c036",
+   "speaker": "JosefUhlik.1963"
+  },
+  {
+   "id": "s03c037",
+   "speaker": "JosefUhlik.1963"
+  },
+  {
+   "id": "s03c038",
+   "speaker": "JosefUhlik.1963"
+  },
+  {
+   "id": "s03c039",
+   "speaker": "JosefUhlik.1963"
+  },
+  {
+   "id": "s03c040",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c041",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c042",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c043",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c044",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c045",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c046",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c047",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c048",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c049",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c050",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c051",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c052",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c053",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c054",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c055",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c056",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c057",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c058",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c059",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c060",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c061",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c062",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s03c063",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c000",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c001",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c002",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c003",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c004",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c005",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c006",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c007",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c008",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c009",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c010",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c011",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c012",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c013",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c014",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c015",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c016",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c017",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c018",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c019",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c020",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c021",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c022",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c023",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c024",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c025",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c026",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c027",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c028",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c029",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c030",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c031",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c032",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c033",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c034",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c035",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c036",
+   "speaker": "GabrielaHubackova.1975"
+  },
+  {
+   "id": "s04c037",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c038",
+   "speaker": "KarelSchwarzenberg.1937"
+  },
+  {
+   "id": "s04c039",
+   "speaker": "MarketaWernerova.1983"
+  },
+  {
+   "id": "s04c040",
+   "speaker": "MarketaWernerova.1983"
+  },
+  {
+   "id": "s04c041",
+   "speaker": "MarketaWernerova.1983"
+  },
+  {
+   "id": "s04c042",
+   "speaker": "MarketaWernerova.1983"
+  },
+  {
+   "id": "s04c043",
+   "speaker": "MarketaWernerova.1983"
+  },
+  {
+   "id": "s04c044",
+   "speaker": "MarketaWernerova.1983"
+  },
+  {
+   "id": "s04c045",
+   "speaker": "MarketaWernerova.1983"
+  },
+  {
+   "id": "s04c046",
+   "speaker": "MarketaWernerova.1983"
+  },
+  {
+   "id": "s04c047",
+   "speaker": "MarketaWernerova.1983"
+  },
+  {
+   "id": "s04c048",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c049",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c050",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c051",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c052",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c053",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c054",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c055",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c056",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c057",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s04c058",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s04c059",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s04c060",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s04c061",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s04c062",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s04c063",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s04c064",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s04c065",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s04c066",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s04c067",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s04c068",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s04c069",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s04c070",
+   "speaker": "ZuzanaSanova.1959"
+  },
+  {
+   "id": "s05c000",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c001",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c002",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c003",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c004",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c005",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c006",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c007",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c008",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c009",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c010",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c011",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c012",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c013",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c014",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c015",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c016",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c017",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c018",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s05c019",
+   "speaker": "KarelSchwarzenberg.1937"
+  },
+  {
+   "id": "s05c020",
+   "speaker": "KarelSchwarzenberg.1937"
+  },
+  {
+   "id": "s05c021",
+   "speaker": "KarelSchwarzenberg.1937"
+  },
+  {
+   "id": "s05c022",
+   "speaker": "KarelSchwarzenberg.1937"
+  },
+  {
+   "id": "s05c023",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s05c024",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s05c025",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s05c026",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s05c027",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s05c028",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s05c029",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s05c030",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c031",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c032",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c033",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c034",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c035",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c036",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c037",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c038",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c039",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c040",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c041",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c042",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c043",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c044",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c045",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c046",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c047",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c048",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c049",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c050",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s05c051",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c000",
+   "speaker": "JanSchiller.1972"
+  },
+  {
+   "id": "s06c001",
+   "speaker": "JanSchiller.1972"
+  },
+  {
+   "id": "s06c002",
+   "speaker": "JanSchiller.1972"
+  },
+  {
+   "id": "s06c003",
+   "speaker": "JanSchiller.1972"
+  },
+  {
+   "id": "s06c004",
+   "speaker": "JanSchiller.1972"
+  },
+  {
+   "id": "s06c005",
+   "speaker": "JanSchiller.1972"
+  },
+  {
+   "id": "s06c006",
+   "speaker": "JanSchiller.1972"
+  },
+  {
+   "id": "s06c007",
+   "speaker": "JanSchiller.1972"
+  },
+  {
+   "id": "s06c008",
+   "speaker": "JanSchiller.1972"
+  },
+  {
+   "id": "s06c009",
+   "speaker": "JanSchiller.1972"
+  },
+  {
+   "id": "s06c010",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c011",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c012",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c013",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c014",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c015",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c016",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c017",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c018",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c019",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c020",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c021",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c022",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c023",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c024",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c025",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c026",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c027",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c028",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c029",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c030",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c031",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c032",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c033",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c034",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c035",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c036",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s06c037",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s06c038",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s06c039",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s06c040",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s06c041",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s06c042",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s06c043",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s06c044",
+   "speaker": "MariePencikova.1979"
+  },
+  {
+   "id": "s06c045",
+   "speaker": "MonikaCervickova.1967"
+  },
+  {
+   "id": "s06c046",
+   "speaker": "MonikaCervickova.1967"
+  },
+  {
+   "id": "s06c047",
+   "speaker": "MonikaCervickova.1967"
+  },
+  {
+   "id": "s06c048",
+   "speaker": "MonikaCervickova.1967"
+  },
+  {
+   "id": "s06c049",
+   "speaker": "MonikaCervickova.1967"
+  },
+  {
+   "id": "s06c050",
+   "speaker": "MonikaCervickova.1967"
+  },
+  {
+   "id": "s06c051",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s06c052",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s06c053",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s06c054",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s06c055",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s06c056",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s06c057",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s06c058",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s06c059",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s07c000",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s07c001",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s07c002",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s07c003",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s07c004",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s07c005",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s07c006",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s07c007",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s07c008",
+   "speaker": "LenkaKozlova.1960"
+  },
+  {
+   "id": "s07c009",
+   "speaker": "MartaNovakova.1954"
+  },
+  {
+   "id": "s07c010",
+   "speaker": "MartaNovakova.1954"
+  },
+  {
+   "id": "s07c011",
+   "speaker": "MartaNovakova.1954"
+  },
+  {
+   "id": "s07c012",
+   "speaker": "MartaNovakova.1954"
+  },
+  {
+   "id": "s07c013",
+   "speaker": "MartaNovakova.1954"
+  },
+  {
+   "id": "s07c014",
+   "speaker": "MartaNovakova.1954"
+  },
+  {
+   "id": "s07c015",
+   "speaker": "MartaNovakova.1954"
+  },
+  {
+   "id": "s07c016",
+   "speaker": "MartaNovakova.1954"
+  },
+  {
+   "id": "s07c017",
+   "speaker": "MartaNovakova.1954"
+  },
+  {
+   "id": "s07c018",
+   "speaker": "MartaNovakova.1954"
+  },
+  {
+   "id": "s07c019",
+   "speaker": "MartaNovakova.1954"
+  },
+  {
+   "id": "s07c020",
+   "speaker": "MartaNovakova.1954"
+  },
+  {
+   "id": "s07c021",
+   "speaker": "MartaNovakova.1954"
+  },
+  {
+   "id": "s07c022",
+   "speaker": "MartaNovakova.1954"
+  },
+  {
+   "id": "s07c023",
+   "speaker": "MartaNovakova.1954"
+  },
+  {
+   "id": "s07c024",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s07c025",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s07c026",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s07c027",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s07c028",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s07c029",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s07c030",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s07c031",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c032",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c033",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c034",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c035",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c036",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c037",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c038",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c039",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c040",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c041",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c042",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c043",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c044",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c045",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c046",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c047",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c048",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c049",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c050",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s07c051",
+   "speaker": "MiloslavaRutova.1947"
+  },
+  {
+   "id": "s08c000",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s08c001",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s08c002",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s08c003",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s08c004",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s08c005",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s08c006",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s08c007",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s08c008",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s08c009",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s08c010",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s08c011",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s08c012",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s08c013",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s08c014",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s08c015",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s08c016",
+   "speaker": "EvaFialova.1982"
+  },
+  {
+   "id": "s08c017",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c018",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c019",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c020",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c021",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c022",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c023",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c024",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c025",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c026",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c027",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c028",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c029",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c030",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c031",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c032",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c033",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c034",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c035",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c036",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c037",
+   "speaker": "JosefBelica.1978"
+  },
+  {
+   "id": "s08c038",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c039",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c040",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c041",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c042",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c043",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c044",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c045",
+   "speaker": "AndreaBabisova.1972"
+  },
+  {
+   "id": "s08c046",
+   "speaker": "AndreaBabisova.1972"
+  },
+  {
+   "id": "s08c047",
+   "speaker": "AndreaBabisova.1972"
+  },
+  {
+   "id": "s08c048",
+   "speaker": "AndreaBabisova.1972"
+  },
+  {
+   "id": "s08c049",
+   "speaker": "AndreaBabisova.1972"
+  },
+  {
+   "id": "s08c050",
+   "speaker": "AndreaBabisova.1972"
+  },
+  {
+   "id": "s08c051",
+   "speaker": "AndreaBabisova.1972"
+  },
+  {
+   "id": "s08c052",
+   "speaker": "AndreaBabisova.1972"
+  },
+  {
+   "id": "s08c053",
+   "speaker": "AndreaBabisova.1972"
+  },
+  {
+   "id": "s08c054",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c055",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c056",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c057",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c058",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c059",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c060",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c061",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c062",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c063",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c064",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c065",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c066",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c067",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c068",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c069",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c070",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c071",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c072",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c073",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c074",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c075",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c076",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c077",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c078",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c079",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c080",
+   "speaker": "LenkaDrazilova.1963"
+  },
+  {
+   "id": "s08c081",
+   "speaker": "LenkaDrazilova.1963"
+  }
+ ],
+ "references_published": false,
+ "hypotheses_published": false
+}

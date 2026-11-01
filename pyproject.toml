@@ -1,0 +1,102 @@
+[project]
+name = "mgtranscriber"
+version = "0.2.0"
+description = "Local video/audio transcription with speaker diarization (WhisperX on your GPU), web UI and job queue"
+requires-python = ">=3.12,<3.13"
+license = "Apache-2.0"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md"]
+authors = [{ name = "Michal Grznár" }]
+dependencies = [
+    "whisperx==3.8.6",
+    # torch, torchaudio and torchvision: see the `cu128` (default) and `cpu` dependency groups
+    "yt-dlp[default]",
+    "python-dotenv",
+    "fastapi>=0.142.2",
+    "uvicorn>=0.54.0",
+    "google-genai>=2.29.0",
+    "anthropic>=1.13.0",
+    "mcp>=2.3.0",
+    "python-multipart>=0.0.32",
+    "onnx-asr[hub]>=0.12",
+    "httpx>=0.28",
+    "python-docx>=1.2.0",
+    "speechbrain>=1.1,<2",  # speaker embedding of the speech separation model (pyannote/speech-separation-ami-1.0)
+    "onnxruntime-gpu>=1.24.2,<1.25 ; (platform_machine == 'x86_64' and sys_platform == 'linux') or (platform_machine == 'AMD64' and sys_platform == 'win32')",
+]
+
+[project.urls]
+Homepage = "https://github.com/Michal1609/MGTranscriber"
+Repository = "https://github.com/Michal1609/MGTranscriber"
+Issues = "https://github.com/Michal1609/MGTranscriber/issues"
+Documentation = "https://github.com/Michal1609/MGTranscriber/tree/main/docs"
+
+[project.scripts]
+mgtranscriber = "mgtranscriber.cli:main"
+
+[dependency-groups]
+# PyTorch build. `uv sync` installs CUDA 12.8 (default); CPU only: `uv sync --no-group cu128 --group cpu`
+cu128 = ["torch==2.8.0", "torchaudio==2.8.0", "torchvision==0.23.0"]
+cpu = ["torch==2.8.0", "torchaudio==2.8.0", "torchvision==0.23.0"]
+dev = [
+    "pytest>=8",
+    "httpx>=0.27",
+    "openai>=3.27.0",
+    "playwright>=1.63.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["mgtranscriber"]
+
+# onnx-asr engines (Parakeet, Canary) need the CUDA build of onnxruntime. It installs the same
+# `onnxruntime` module as the CPU package faster-whisper depends on, so the CPU one is dropped where
+# the GPU build has wheels (Windows and Linux on x86-64); elsewhere (macOS, Linux aarch64) the CPU one stays.
+[tool.uv]
+override-dependencies = ["onnxruntime ; (platform_machine != 'x86_64' or sys_platform != 'linux') and (platform_machine != 'AMD64' or sys_platform != 'win32')"]
+default-groups = ["dev", "cu128"]
+conflicts = [[{ group = "cu128" }, { group = "cpu" }]]
+
+# RTX 50xx (Blackwell, sm_120) needs PyTorch built for CUDA 12.8. The CPU build is for machines without an
+# NVIDIA GPU and for the CPU Docker image; install.ps1 picks one from nvidia-smi.
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu128", group = "cu128" }, { index = "pytorch-cpu", group = "cpu" }]
+torchaudio = [{ index = "pytorch-cu128", group = "cu128" }, { index = "pytorch-cpu", group = "cpu" }]
+torchvision = [{ index = "pytorch-cu128", group = "cu128" }, { index = "pytorch-cpu", group = "cpu" }]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+# Lint for bugs, not style: `uvx ruff check .` (run it before a pull request). Formatting is not enforced.
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "B", "W6"]
+# E701/E702: short `if x: return` lines are the house style; B008: FastAPI Depends() defaults;
+# B904/B905: raise-from and zip(strict=) everywhere would be noise; B027: optional no-op hooks in ABCs
+ignore = ["E701", "E702", "E731", "B008", "B027", "B904", "B905"]
+
+[tool.ruff.lint.per-file-ignores]
+# Playwright helpers defined in a loop are called in the same iteration
+"tools/*" = ["B023"]
+# flush() is defined and called inside the same loop iteration
+"mgtranscriber/separated.py" = ["B023"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-m 'not gpu and not ollama'"
+markers = [
+    "gpu: end-to-end test on a real GPU with a small model (run with: pytest -m gpu)",
+    "ollama: needs a running Ollama with gemma3:4b and bge-m3 (run with: pytest -m ollama)",
+]

@@ -1,0 +1,12 @@
+# Override for machines without an NVIDIA GPU (much slower; use -m large-v3-turbo or smaller models):
+#   docker compose -f docker-compose.yml -f docker-compose.cpu.yml up -d
+services:
+  mgtranscriber:
+    image: mgtranscriber:cpu
+    build:
+      args:
+        TORCH: cpu
+    deploy: !reset {}
+
+  ollama:
+    deploy: !reset {}

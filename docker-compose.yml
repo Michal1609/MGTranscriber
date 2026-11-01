@@ -1,0 +1,59 @@
+# mgtranscriber with an NVIDIA GPU. Needs the NVIDIA driver and the NVIDIA Container Toolkit on the host
+# (Docker Desktop on Windows: WSL2 backend, nothing else). Details, CPU variant, Unraid/TrueNAS: docs/DOCKER.md
+#
+#   cp .env.example .env        # HF_TOKEN=... (speaker recognition), MGTRANSCRIBER_API_KEY=... for network access
+#   docker compose up -d        # http://localhost:8000
+#   docker compose --profile ollama up -d   # + local LLM for summaries and Q&A
+#
+# No NVIDIA GPU:  docker compose -f docker-compose.yml -f docker-compose.cpu.yml up -d
+
+services:
+  mgtranscriber:
+    image: mgtranscriber:latest
+    build:
+      context: .
+      args:
+        TORCH: cu128
+    restart: unless-stopped
+    init: false              # the image runs tini itself
+    ports:
+      - "${MGTRANSCRIBER_PUBLISH:-127.0.0.1:8000}:8000"   # 0.0.0.0:8000 = whole network; then set MGTRANSCRIBER_API_KEY
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      # host names the browser uses to reach the server (DNS-rebinding protection); add your NAS name or IP
+      MGTRANSCRIBER_ALLOWED_HOSTS: ${MGTRANSCRIBER_ALLOWED_HOSTS:-localhost,127.0.0.1}
+      MGTRANSCRIBER_LLM_BASE_URL: ${MGTRANSCRIBER_LLM_BASE_URL:-http://ollama:11434}
+    volumes:
+      - ./output:/output     # transcripts (one folder each)
+      - ./data:/data         # queue, search index, voice memory, downloaded models (several GB)
+    # user: "99:100"         # Unraid (nobody:users); the folders above must be writable by this user
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    shm_size: "1gb"          # PyTorch data loaders use shared memory
+
+  ollama:
+    image: ollama/ollama:latest
+    profiles: ["ollama"]
+    restart: unless-stopped
+    volumes:
+      - ./data/ollama:/root/.ollama
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    healthcheck:
+      test: ["CMD", "ollama", "list"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    # first start: docker compose exec ollama ollama pull gemma3:4b && docker compose exec ollama ollama pull bge-m3

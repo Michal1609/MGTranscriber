@@ -1,0 +1,644 @@
+{
+ "run": "app-parakeet",
+ "dataset": "ami",
+ "mode": "app",
+ "engine": "parakeet",
+ "model": "nemo-parakeet-tdt-0.6b-v3",
+ "device": "GPU",
+ "utterances": 88,
+ "sessions": [
+  {
+   "id": "ES2004a",
+   "seconds": 1049.4,
+   "transcribe_seconds": 107.0,
+   "rtf": 0.1019,
+   "word_errors": 465,
+   "ref_words": 2640,
+   "wer_whole": 17.61,
+   "der": 22.45,
+   "der_no_overlap": 12.75,
+   "miss": 16.5,
+   "false_alarm": 4.81,
+   "confusion": 1.13,
+   "ref_speech_s": 776.1,
+   "speakers_ref": 4,
+   "speakers_hyp": 5
+  },
+  {
+   "id": "IS1009a",
+   "seconds": 838.8,
+   "transcribe_seconds": 57.2,
+   "rtf": 0.0682,
+   "word_errors": 383,
+   "ref_words": 1920,
+   "wer_whole": 19.95,
+   "der": 22.07,
+   "der_no_overlap": 13.53,
+   "miss": 12.64,
+   "false_alarm": 6.56,
+   "confusion": 2.86,
+   "ref_speech_s": 599.3,
+   "speakers_ref": 4,
+   "speakers_hyp": 4
+  },
+  {
+   "id": "TS3003a",
+   "seconds": 1505.6,
+   "transcribe_seconds": 88.6,
+   "rtf": 0.0589,
+   "word_errors": 395,
+   "ref_words": 2504,
+   "wer_whole": 15.77,
+   "der": 19.46,
+   "der_no_overlap": 17.39,
+   "miss": 9.94,
+   "false_alarm": 7.32,
+   "confusion": 2.21,
+   "ref_speech_s": 931.0,
+   "speakers_ref": 4,
+   "speakers_hyp": 4
+  },
+  {
+   "id": "EN2002b",
+   "seconds": 1786.8,
+   "transcribe_seconds": 108.2,
+   "rtf": 0.0606,
+   "word_errors": 1767,
+   "ref_words": 6161,
+   "wer_whole": 28.68,
+   "der": 32.93,
+   "der_no_overlap": 14.24,
+   "miss": 26.39,
+   "false_alarm": 4.03,
+   "confusion": 2.51,
+   "ref_speech_s": 1638.7,
+   "speakers_ref": 4,
+   "speakers_hyp": 4
+  }
+ ],
+ "audio_seconds": 5180.6,
+ "rtf": 0.0697,
+ "seconds_total": 361.0,
+ "wer_whole": 22.76,
+ "der": 26.04,
+ "speakers_ref": 16,
+ "speakers_hyp": 17,
+ "date": "2026-10-10",
+ "gpu": "NVIDIA GeForce RTX 5070 Laptop GPU, 8151 MiB",
+ "python": "3.12.14",
+ "warnings": [],
+ "wer": 23.09,
+ "wer_ci": [
+  20.36,
+  25.83
+ ],
+ "cer": 19.06,
+ "cer_ci": [
+  16.56,
+  21.61
+ ],
+ "word_errors_total": 3054,
+ "ref_words_total": 13225,
+ "wer_no_digits": 23.09,
+ "wer_no_digits_ci": [
+  20.36,
+  25.83
+ ],
+ "utterances_no_digits": 88,
+ "word_errors": [
+  46,
+  7,
+  6,
+  4,
+  24,
+  32,
+  48,
+  8,
+  35,
+  35,
+  23,
+  29,
+  35,
+  28,
+  23,
+  35,
+  29,
+  24,
+  19,
+  11,
+  4,
+  5,
+  19,
+  30,
+  11,
+  27,
+  54,
+  59,
+  29,
+  72,
+  16,
+  34,
+  13,
+  17,
+  13,
+  15,
+  6,
+  12,
+  7,
+  19,
+  14,
+  17,
+  10,
+  11,
+  7,
+  24,
+  16,
+  0,
+  45,
+  23,
+  17,
+  4,
+  25,
+  32,
+  23,
+  24,
+  9,
+  0,
+  30,
+  23,
+  89,
+  70,
+  107,
+  45,
+  97,
+  85,
+  70,
+  53,
+  60,
+  53,
+  27,
+  27,
+  63,
+  74,
+  13,
+  41,
+  29,
+  60,
+  101,
+  81,
+  42,
+  62,
+  71,
+  29,
+  49,
+  105,
+  75,
+  59
+ ],
+ "ref_words": [
+  66,
+  90,
+  153,
+  20,
+  78,
+  134,
+  153,
+  109,
+  157,
+  166,
+  163,
+  189,
+  201,
+  236,
+  211,
+  213,
+  206,
+  95,
+  17,
+  145,
+  104,
+  76,
+  129,
+  97,
+  99,
+  161,
+  208,
+  243,
+  216,
+  216,
+  130,
+  79,
+  73,
+  120,
+  136,
+  131,
+  107,
+  141,
+  130,
+  142,
+  132,
+  88,
+  70,
+  67,
+  52,
+  35,
+  65,
+  0,
+  59,
+  48,
+  117,
+  124,
+  132,
+  195,
+  144,
+  130,
+  66,
+  0,
+  68,
+  24,
+  218,
+  255,
+  213,
+  237,
+  236,
+  212,
+  199,
+  197,
+  240,
+  208,
+  170,
+  225,
+  261,
+  288,
+  156,
+  234,
+  186,
+  146,
+  298,
+  284,
+  209,
+  259,
+  261,
+  191,
+  226,
+  184,
+  191,
+  85
+ ],
+ "items": [
+  {
+   "id": "ES2004a-w00",
+   "speaker": null
+  },
+  {
+   "id": "ES2004a-w01",
+   "speaker": null
+  },
+  {
+   "id": "ES2004a-w02",
+   "speaker": null
+  },
+  {
+   "id": "ES2004a-w03",
+   "speaker": null
+  },
+  {
+   "id": "ES2004a-w04",
+   "speaker": null
+  },
+  {
+   "id": "ES2004a-w05",
+   "speaker": null
+  },
+  {
+   "id": "ES2004a-w06",
+   "speaker": null
+  },
+  {
+   "id": "ES2004a-w07",
+   "speaker": null
+  },
+  {
+   "id": "ES2004a-w08",
+   "speaker": null
+  },
+  {
+   "id": "ES2004a-w09",
+   "speaker": null
+  },
+  {
+   "id": "ES2004a-w10",
+   "speaker": null
+  },
+  {
+   "id": "ES2004a-w11",
+   "speaker": null
+  },
+  {
+   "id": "ES2004a-w12",
+   "speaker": null
+  },
+  {
+   "id": "ES2004a-w13",
+   "speaker": null
+  },
+  {
+   "id": "ES2004a-w14",
+   "speaker": null
+  },
+  {
+   "id": "ES2004a-w15",
+   "speaker": null
+  },
+  {
+   "id": "ES2004a-w16",
+   "speaker": null
+  },
+  {
+   "id": "ES2004a-w17",
+   "speaker": null
+  },
+  {
+   "id": "IS1009a-w00",
+   "speaker": null
+  },
+  {
+   "id": "IS1009a-w01",
+   "speaker": null
+  },
+  {
+   "id": "IS1009a-w02",
+   "speaker": null
+  },
+  {
+   "id": "IS1009a-w03",
+   "speaker": null
+  },
+  {
+   "id": "IS1009a-w04",
+   "speaker": null
+  },
+  {
+   "id": "IS1009a-w05",
+   "speaker": null
+  },
+  {
+   "id": "IS1009a-w06",
+   "speaker": null
+  },
+  {
+   "id": "IS1009a-w07",
+   "speaker": null
+  },
+  {
+   "id": "IS1009a-w08",
+   "speaker": null
+  },
+  {
+   "id": "IS1009a-w09",
+   "speaker": null
+  },
+  {
+   "id": "IS1009a-w10",
+   "speaker": null
+  },
+  {
+   "id": "IS1009a-w11",
+   "speaker": null
+  },
+  {
+   "id": "IS1009a-w12",
+   "speaker": null
+  },
+  {
+   "id": "IS1009a-w13",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w00",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w01",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w02",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w03",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w04",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w05",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w06",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w07",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w08",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w09",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w10",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w11",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w12",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w13",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w14",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w15",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w16",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w17",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w18",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w19",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w20",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w21",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w22",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w23",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w24",
+   "speaker": null
+  },
+  {
+   "id": "TS3003a-w25",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w00",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w01",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w02",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w03",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w04",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w05",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w06",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w07",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w08",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w09",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w10",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w11",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w12",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w13",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w14",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w15",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w16",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w17",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w18",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w19",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w20",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w21",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w22",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w23",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w24",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w25",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w26",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w27",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w28",
+   "speaker": null
+  },
+  {
+   "id": "EN2002b-w29",
+   "speaker": null
+  }
+ ],
+ "references_published": false,
+ "hypotheses_published": false
+}

@@ -1,0 +1,56 @@
+/* Recorder panel in the "New transcript" form (static/js/components/recorder.js). Uses the tokens of app.css. */
+
+.rec-panel { margin: 12px 0; padding: 14px 16px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface-2, var(--surface)); }
+.rec-panel[hidden] { display: none; }
+.rec-panel h3 { font-size: 15px; margin: 0 0 4px; }
+.rec-consent { margin: 0 0 12px; font-size: 14px; color: var(--muted); }
+.rec-hint { margin: 8px 0 0; font-size: 13.5px; color: var(--muted); }
+.rec-error { margin: 8px 0; color: var(--danger-text, var(--danger)); font-weight: 550; overflow-wrap: anywhere; }
+.rec-warn { margin: 6px 0 0; min-height: 1.2em; color: var(--warn, #8a5a00); font-weight: 550; }
+.rec-warn:empty { min-height: 0; margin: 0; }
+.rec-sources { border: 0; margin: 0 0 10px; padding: 0; min-width: 0; display: grid; gap: 6px; }
+.rec-sources legend { font-weight: 650; padding: 0; margin-bottom: 6px; }
+.rec-radio { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+.rec-radio input { width: 18px; height: 18px; accent-color: var(--accent); }
+.rec-device { max-width: 420px; margin-bottom: 8px; }
+.rec-device[hidden] { display: none; }
+.rec-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; }
+.rec-actions .btn { display: inline-flex; align-items: center; gap: 8px; }
+.rec-confirm { display: inline-flex; gap: 8px; flex-wrap: wrap; }
+.btn.danger { background: var(--danger); color: #fff; border-color: var(--danger); }
+.btn.ghost { background: transparent; }
+.btn.small { padding: 5px 12px; font-size: 14px; }
+
+.rec-status { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 17px; margin: 0 0 10px; }
+.rec-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--danger); flex: none; }
+.rec-status.recording .rec-dot { animation: rec-pulse 1.2s ease-in-out infinite; }
+.rec-status.paused .rec-dot { background: var(--muted); }
+.rec-time { font: 600 22px var(--mono); font-variant-numeric: tabular-nums; }
+.rec-src { color: var(--muted); font-size: 14px; margin-left: auto; }
+.rec-meter { height: 10px; border-radius: 99px; background: var(--border); overflow: hidden; }
+.rec-meter span { display: block; height: 100%; width: 0; background: var(--ok); transition: width 0.12s linear; }
+.rec-sync { margin: 8px 0 0; font-size: 14px; color: var(--muted); }
+.rec-sync.warn { color: var(--warn, #8a5a00); font-weight: 600; }
+.rec-spinner { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--border); border-top-color: var(--accent); animation: rec-spin 0.8s linear infinite; }
+
+.rec-recover { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); }
+.rec-panel .rec-recover:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.rec-recover ul { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 8px; }
+.rec-recover-item { display: flex; gap: 8px 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.rec-recover-text { overflow-wrap: anywhere; }
+.rec-recover-text em { font-style: normal; color: var(--muted); }
+.rec-recover-actions { display: flex; gap: 8px; }
+
+#rec-btn.recording { border-color: var(--danger); color: var(--danger-text, var(--danger)); }
+#rec-btn.recording::after { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--danger); margin-left: 8px; animation: rec-pulse 1.2s ease-in-out infinite; }
+
+@keyframes rec-pulse { 50% { opacity: 0.35; } }
+@keyframes rec-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .rec-status.recording .rec-dot, #rec-btn.recording::after, .rec-spinner { animation: none; }
+  .rec-meter span { transition: none; }
+}
+@media (max-width: 520px) {
+  .rec-actions .btn { flex: 1 1 100%; justify-content: center; }
+  .rec-src { margin-left: 0; flex-basis: 100%; }
+}

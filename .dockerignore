@@ -1,0 +1,9 @@
+# Only what the image needs: pyproject.toml, uv.lock, mgtranscriber/, static/, LICENSE files
+*
+!pyproject.toml
+!uv.lock
+!mgtranscriber/
+!static/
+!LICENSE
+!THIRD_PARTY_NOTICES.md
+**/__pycache__

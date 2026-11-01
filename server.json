@@ -1,0 +1,39 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.michal1609/mgtranscriber",
+  "title": "MGTranscriber",
+  "description": "Transcribe videos and files on your GPU with speaker labels; search and read your transcripts.",
+  "repository": {
+    "url": "https://github.com/Michal1609/MGTranscriber",
+    "source": "github"
+  },
+  "version": "0.2.0",
+  "websiteUrl": "https://github.com/Michal1609/MGTranscriber",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "mgtranscriber",
+      "version": "0.2.0",
+      "runtimeHint": "uvx",
+      "packageArguments": [
+        { "type": "positional", "value": "mcp" }
+      ],
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        {
+          "name": "MGTRANSCRIBER_API_KEY",
+          "description": "API key of a running MGTranscriber web server, if it uses one (jobs are sent there).",
+          "isRequired": false,
+          "isSecret": true
+        },
+        {
+          "name": "HF_TOKEN",
+          "description": "Hugging Face token; needed for speaker labels (pyannote diarization models).",
+          "isRequired": false,
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

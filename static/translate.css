@@ -1,0 +1,31 @@
+/* Language switcher and "Translate to…" of the transcript detail page (components/translations.js). */
+.d-langbar { margin-top: 16px; }
+.lang-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.lang-switch { display: flex; gap: 4px; flex-wrap: wrap; padding: 3px; background: var(--surface-2); border-radius: 10px; }
+.lang-btn { font: inherit; font-size: 14px; border: 0; background: none; color: var(--muted); padding: 6px 12px; border-radius: 8px; cursor: pointer; }
+.lang-btn:hover { color: var(--text); }
+.lang-btn.active { background: var(--surface); color: var(--accent); font-weight: 600; box-shadow: 0 1px 2px rgb(0 0 0 / 12%); }
+.lang-btn small { font-weight: 400; color: var(--danger); }
+.lang-btn:focus-visible, .lang-open:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.lang-form { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px 14px; padding: 14px 16px; margin-top: 10px; align-items: end; }
+.lang-form[hidden] { display: none; }
+.lang-form label { display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--muted); }
+.lang-form select, .lang-form input { font: inherit; padding: 8px 10px; border: 1px solid var(--border); border-radius: 9px; background: var(--surface); color: var(--text); min-width: 0; }
+.lang-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.lang-form .btn.primary { margin-left: 0; padding: 9px 18px; }
+.lang-form .llm-note { grid-column: 1 / -1; }
+.lang-status:empty { display: none; }
+.lang-status { margin-top: 10px; display: grid; gap: 8px; }
+.lang-job { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; font-size: 14px; }
+.lang-job .bar { flex: 1 1 140px; max-width: 280px; height: 8px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.lang-job .bar i { display: block; height: 100%; background: var(--accent); transition: width .3s; }
+.btn.small { padding: 4px 10px; font-size: 13px; }
+.lang-msg { font-size: 14px; color: var(--muted); }
+.lang-banner { margin-top: 10px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+.lang-banner.stale { border-color: var(--danger); background: var(--danger-soft); }
+.lang-banner p { margin: 0 0 6px; }
+.lang-banner .lang-stale { font-weight: 600; color: var(--danger); }
+.lang-banner .lang-actions { margin-top: 6px; }
+.hit-lang { font-size: 11px; font-weight: 700; text-decoration: none; border: 1px solid var(--border); border-radius: 5px; padding: 0 4px; color: var(--muted); }
+.translated-view .d-edit { display: none; }
+@media (prefers-reduced-motion: reduce) { .lang-job .bar i { transition: none; } }

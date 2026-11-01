@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>MGTranscriber</title>
+  <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="icons/favicon.ico" sizes="48x48">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#5b5bd6">
+  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="extra.css">
+  <link rel="stylesheet" href="folders.css">
+  <link rel="stylesheet" href="jobs.css">
+  <link rel="stylesheet" href="recorder.css">
+</head>
+<body>
+  <!-- App shell. Pages render into #view; see static/js/pages/ and docs/ARCHITECTURE.md. -->
+  <header class="topbar">
+    <a class="brand" href="#/">
+      <span class="logo" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M8 12h3v8H8zm5-4h3v16h-3zm5 6h3v4h-3zm5-3h3v10h-3z"/></svg></span>
+      <span data-i18n="app.name"></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main"></nav>
+    <div class="topbar-end">
+      <span class="topbar-note" data-i18n="app.tagline"></span>
+      <select id="lang" class="lang-select" aria-label="Language"></select>
+    </div>
+  </header>
+
+  <main id="view" class="page"></main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

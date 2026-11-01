@@ -1,0 +1,109 @@
+/* Library folders: the tree beside the tiles, breadcrumb, multi-select bar, dialogs, the folder field of the
+   new-job form and the folder line of the detail page. Uses the colour tokens of app.css. */
+
+.library-layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 18px; align-items: start; }
+.library-main { min-width: 0; }
+
+/* --- the tree (nested lists of buttons) --- */
+.folder-side { position: sticky; top: 70px; max-height: calc(100vh - 90px); overflow: auto; padding-right: 4px; }
+.fs-select { display: none; }
+.fs-head { display: flex; align-items: center; justify-content: space-between; margin: 0 0 6px; }
+.fs-head h3 { margin: 0; font-size: 13px; font-weight: 650; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.ft-root, .ft-children { list-style: none; margin: 0; padding: 0; }
+.ft-children { padding-left: 14px; }
+.ft-row { display: flex; align-items: center; gap: 2px; border-radius: 8px; border: 1px solid transparent; }
+.ft-row.drop-over { border-color: var(--accent); background: var(--accent-soft); }
+.folder-side.drop-active .ft-row[data-drop] { border-style: dashed; border-color: var(--border); }
+.folder-side.drop-active .ft-row.drop-over { border-style: solid; border-color: var(--accent); }
+.ft-toggle, .ft-spacer { flex: none; width: 24px; height: 28px; }
+.ft-toggle { font: inherit; background: none; border: 0; color: var(--muted); cursor: pointer; border-radius: 6px; padding: 0; }
+.ft-toggle:hover { background: var(--surface-2); color: var(--text); }
+.ft-label {
+  flex: 1; min-width: 0; display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  font: inherit; font-size: 14px; text-align: left; color: var(--text); background: none; border: 0;
+  padding: 5px 8px; border-radius: 8px; cursor: pointer;
+}
+.ft-label:hover { background: var(--surface-2); }
+.ft-label[aria-current="true"] { background: var(--accent-soft); color: var(--accent); font-weight: 650; }
+.ft-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ft-count { flex: none; color: var(--muted); font-size: 12px; font-variant-numeric: tabular-nums; }
+
+/* --- breadcrumb and actions --- */
+.folder-bar { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 14px; margin: 0 0 12px; min-height: 34px; }
+.crumbs ol { display: flex; flex-wrap: wrap; align-items: center; gap: 2px; list-style: none; margin: 0; padding: 0; }
+.crumbs li + li::before { content: "/"; color: var(--muted); margin: 0 4px; }
+.crumb { font: inherit; font-size: 15px; background: none; border: 0; padding: 3px 6px; border-radius: 6px; color: var(--accent); cursor: pointer; }
+button.crumb:hover { background: var(--accent-soft); }
+.crumb.current { font-weight: 650; color: var(--text); }
+.folder-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+.btn.small { padding: 5px 11px; font-size: 13px; margin-left: 0; }
+.here { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); cursor: pointer; }
+
+/* --- selection --- */
+.selection-bar {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px; margin: 0 0 12px; padding: 8px 12px;
+  background: var(--accent-soft); border: 1px solid var(--accent); border-radius: 10px;
+}
+.selection-bar[hidden] { display: none; }
+.sel-count { font-weight: 600; margin-right: auto; }
+.tile { position: relative; padding: 0; }
+.tile-link { display: block; padding: 18px; color: inherit; text-decoration: none; border-radius: var(--radius); }
+.tile-check { position: absolute; top: 8px; right: 8px; z-index: 1; display: grid; place-items: center; width: 28px; height: 28px; cursor: pointer; }
+.tile-check input { width: 18px; height: 18px; margin: 0; cursor: pointer; accent-color: var(--accent); }
+.tile-del { position: absolute; top: 8px; right: 40px; z-index: 1; width: 28px; height: 28px; padding: 0; opacity: 0.6; }
+.tile:hover .tile-del, .tile-del:focus-visible { opacity: 1; }
+.rm-list { margin: 0 0 10px; padding-left: 20px; overflow-wrap: anywhere; }
+.tile.selected { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+.tile.dragging { opacity: 0.5; }
+.tile .tile-link h3 { padding-right: 64px; }
+.tile-folder { color: var(--accent); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tile-folder::before { content: "▸ "; }
+
+/* --- dialogs --- */
+.fx-dialog {
+  width: min(440px, calc(100vw - 32px)); padding: 20px; color: var(--text); background: var(--surface);
+  border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+.fx-dialog::backdrop { background: rgba(10, 10, 20, 0.5); }
+.fx-dialog h2 { margin: 0 0 14px; font-size: 18px; overflow-wrap: anywhere; }
+.fx-body { display: flex; flex-direction: column; gap: 12px; }
+.fx-body p { margin: 0; }
+.fx-hint { color: var(--muted); font-size: 13px; }
+.fx-error { min-height: 1.2em; margin: 8px 0 0; color: var(--danger); font-size: 14px; }
+.fx-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px; }
+.fx-actions .btn.primary { margin-left: 0; padding: 8px 18px; }
+.fx-dialog .radio { display: flex; gap: 8px; align-items: flex-start; cursor: pointer; }
+.fx-dialog [hidden] { display: none; }
+
+/* --- new-job form --- */
+.folder-row { align-items: flex-end; }
+.folder-field { flex-direction: row; align-items: center; flex-wrap: wrap; gap: 8px 10px; }
+.folder-field label { font-size: 13px; font-weight: 550; color: var(--muted); }
+.folder-field .select { max-width: 260px; }
+.folder-field input[hidden] { display: none; }
+
+/* --- detail page --- */
+.d-folder { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 10px; margin: 8px 0 0; font-size: 14px; }
+.d-folder .crumbs { display: inline-block; }
+.d-folder-label { color: var(--muted); }
+
+@media (max-width: 760px) {
+  .library-layout { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .folder-side { position: static; max-height: none; overflow: visible; padding: 0; }
+  .fs-select { display: block; }
+  .fs-select .select { width: 100%; }
+  .fs-tree { display: none; }
+  .here { margin-left: 0; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .ft-row { transition: background .12s, border-color .12s; }
+}
+
+/* --- quick delete --- */
+.d-titlebar { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px 12px; }
+.d-titlebar h1 { flex: 1; min-width: 0; }
+.d-titlebar .d-delete { flex: none; margin-top: 4px; }
+.translate-field { flex-direction: row; align-items: center; gap: 8px 10px; }
+.translate-field span { font-size: 13px; font-weight: 550; color: var(--muted); }
+.translate-field .select { max-width: 220px; }
