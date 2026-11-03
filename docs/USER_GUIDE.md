@@ -140,7 +140,7 @@ transcription). Choose what to record:
 - **Microphone**: pick the device if you have several.
 - **Meeting audio from a tab or screen**: for Teams, Zoom or Meet running **in the browser**. The browser asks what
   to share; pick the browser tab with the meeting and tick **Share tab audio**. Only the sound is recorded, not the
-  picture. This works in Chrome and Edge. Firefox and Safari cannot share tab audio; use the microphone there. A
+  picture. This works in Chrome and Edge. Firefox and Safari cannot share tab audio, so they offer only the microphone. A
   desktop app (Teams or Zoom as a program) cannot be captured this way: share the whole screen with system audio
   (Windows, Chrome/Edge) or use the microphone.
 - **Microphone + tab audio**: your voice and the others on the call in one recording.

@@ -27,6 +27,7 @@
 .rec-status.paused .rec-dot { background: var(--muted); }
 .rec-time { font: 600 22px var(--mono); font-variant-numeric: tabular-nums; }
 .rec-src { color: var(--muted); font-size: 14px; margin-left: auto; }
+.rec-part { display: grid; grid-template-columns: 11em 1fr; gap: 8px; align-items: center; font-size: 0.9em; }
 .rec-meter { height: 10px; border-radius: 99px; background: var(--border); overflow: hidden; }
 .rec-meter span { display: block; height: 100%; width: 0; background: var(--ok); transition: width 0.12s linear; }
 .rec-sync { margin: 8px 0 0; font-size: 14px; color: var(--muted); }

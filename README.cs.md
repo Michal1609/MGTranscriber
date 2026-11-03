@@ -23,7 +23,9 @@ nezvolíte cloudový engine, takže nahrávky, které musí zůstat v soukromí,
 - **Přepis s mluvčími**: [WhisperX](https://github.com/m-bain/whisperX) (Whisper large-v3, zarovnání slov,
   [pyannote](https://github.com/pyannote/pyannote-audio) diarizace), dále NVIDIA Parakeet a Canary. Časy na úrovni slov.
 - **Zdroje**: místní audio/video soubory, YouTube a další odkazy ([yt-dlp](https://github.com/yt-dlp/yt-dlp)),
-  RSS kanály podcastů a vestavěný **rekordér** (mikrofon v prohlížeči).
+  RSS kanály podcastů a vestavěný **rekordér** v prohlížeči: mikrofon, zvuk karty se schůzkou nebo celé
+  obrazovky, případně obojí. Zvuk schůzky a obrazovky potřebuje Chrome nebo Edge; Firefox a Safari nahrají
+  jen mikrofon, protože zvuk karty ani systému sdílet neumí.
 - **Webové rozhraní** s frontou úloh, živým logem, fulltextovým hledáním napříč všemi přepisy (nezávislé na
   diakritice) a přehrávačem zvuku, který sleduje text.
 - **Editor**: opravujte text a mluvčí, zatímco hraje zvuk; zpět, rozdělení/sloučení, uložené verze

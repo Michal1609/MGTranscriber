@@ -29,6 +29,8 @@ const S = {
   elapsedBase: 0, // ms recorded before the current run (pause)
   runStart: 0,
   level: 0,
+  parts: [],
+  micLabel: "",
   silentSince: 0,
   error: "",
   note: "",
@@ -62,6 +64,17 @@ export function clock(ms) {
 
 const pad = (n) => String(n).padStart(2, "0");
 const stamp = (d = new Date()) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}-${pad(d.getMinutes())}`;
+
+// Only Chromium browsers (Chrome, Edge) put audio into a screen share; Firefox and Safari share the picture
+// only, so the tab options would always end in "no audio was shared". suppressLocalAudioPlayback is a
+// Chromium-only constraint (Chrome 109+); the user agent check covers older Chromium versions.
+export function canShareAudio() {
+  const md = navigator.mediaDevices;
+  if (!md?.getDisplayMedia) return false;
+  if (md.getSupportedConstraints?.().suppressLocalAudioPlayback) return true;
+  const brands = navigator.userAgentData?.brands || [];
+  return brands.some((b) => /Chromium|Google Chrome|Microsoft Edge/.test(b.brand));
+}
 
 export function support() {
   if (typeof MediaRecorder === "undefined" || !navigator.mediaDevices?.getUserMedia) {
@@ -145,6 +158,7 @@ function stopCapture() {
   S.ctx?.close().catch(() => {});
   S.ctx = null;
   S.analyser = null;
+  S.parts = [];
   clearInterval(S.timer);
   S.timer = null;
   S.wake?.release?.().catch(() => {});
@@ -202,6 +216,20 @@ async function beginCapture(source, deviceId) {
   analyser.fftSize = 1024;
   ctx.createMediaStreamSource(recordStream).connect(analyser); // not connected to the speakers
   S.analyser = analyser;
+  // in the mix, each source gets its own meter: a silent microphone hides behind a loud meeting otherwise
+  S.parts = [];
+  if (source === "mix") {
+    for (const [kind, stream] of [["microphone", mic], ["tab", display]]) {
+      const a = ctx.createAnalyser();
+      a.fftSize = 1024;
+      ctx.createMediaStreamSource(new MediaStream(stream.getAudioTracks())).connect(a);
+      S.parts.push({ kind, analyser: a, level: 0, silentSince: performance.now() });
+    }
+  }
+  S.micLabel = mic?.getAudioTracks()[0]?.label || "";
+  for (const tr of streams.flatMap((st) => st.getAudioTracks())) {
+    console.info("[recorder] track", tr.kind, JSON.stringify(tr.label), "muted:", tr.muted, "state:", tr.readyState, tr.getSettings?.());
+  }
   S.mime = mime;
   // the user ended the share / unplugged the microphone: finish what was recorded
   for (const tr of streams.flatMap((s) => s.getTracks())) {
@@ -234,27 +262,54 @@ function startRecorder(stream) {
   S.lastMinute = 0;
   S.level = 0;
   S.silentSince = performance.now();
+  S.micPeak = 0;
   S.timer = setInterval(tick, 200);
 }
 
+// A working microphone always has some noise (about -60 to -75 dB even in a quiet room). One that is
+// muted in Windows, by the mute key or by a privacy switch delivers digital silence: the browser cannot
+// read the mute state, but it can see this.
+const DEAD_PEAK = 10 ** (-80 / 20);
+const DEAD_AFTER_MS = 1500;
+
+function measure(analyser) {
+  const data = new Float32Array(analyser.fftSize);
+  analyser.getFloatTimeDomainData(data);
+  let sum = 0;
+  let peak = 0;
+  for (const v of data) {
+    sum += v * v;
+    peak = Math.max(peak, Math.abs(v));
+  }
+  const rms = Math.sqrt(sum / data.length);
+  return { db: rms > 0 ? 20 * Math.log10(rms) : -100, peak };
+}
+
+const toLevel = (db) => Math.max(0, Math.min(1, (db + 60) / 60));
+
 function tick() {
   if (S.analyser && S.phase === "recording") {
-    const data = new Float32Array(S.analyser.fftSize);
-    S.analyser.getFloatTimeDomainData(data);
-    let sum = 0;
-    for (const v of data) sum += v * v;
-    const rms = Math.sqrt(sum / data.length);
-    const db = rms > 0 ? 20 * Math.log10(rms) : -100;
-    S.level = Math.max(0, Math.min(1, (db + 60) / 60));
-    if (db > -55) {
-      S.silentSince = performance.now();
-      if (S.note) {
-        S.note = "";
-        announce("");
-      }
-    } else if (performance.now() - S.silentSince > SILENCE_AFTER_MS && !S.note) {
-      S.note = t("recorder.silent");
-      announce(S.note);
+    const now = performance.now();
+    const main = measure(S.analyser);
+    S.level = toLevel(main.db);
+    if (main.db > -55) S.silentSince = now;
+    let micPeak = S.source === "microphone" ? main.peak : null;
+    for (const part of S.parts || []) {
+      const m = measure(part.analyser);
+      part.level = toLevel(m.db);
+      if (m.db > -55) part.silentSince = now;
+      if (part.kind === "microphone") micPeak = m.peak;
+    }
+    if (micPeak !== null) S.micPeak = Math.max(S.micPeak || 0, micPeak);
+    const mic = (S.parts || []).find((part) => part.kind === "microphone");
+    let note = "";
+    if (micPeak !== null && S.micPeak < DEAD_PEAK && now - S.runStart > DEAD_AFTER_MS) {
+      note = t("recorder.mic_dead", { device: S.micLabel || t("recorder.device_default") });
+    } else if (now - S.silentSince > SILENCE_AFTER_MS) note = t("recorder.silent");
+    else if (mic && now - mic.silentSince > SILENCE_AFTER_MS) note = t("recorder.mic_silent", { device: S.micLabel || t("recorder.device_default") });
+    if (note !== S.note) {
+      S.note = note;
+      announce(note);
     }
   }
   const minute = Math.floor(elapsedMs() / 60000);
@@ -433,7 +488,8 @@ export function mountRecorder(root, { getFields, onJob = () => {} } = {}) {
   let busyIds = new Set();
   let mounted = true;
   const mode = support();
-  const hasDisplay = Boolean(navigator.mediaDevices?.getDisplayMedia);
+  const hasDisplay = canShareAudio();
+  if (!hasDisplay && source !== "microphone") source = "microphone";
   S.getFields = getFields;
   S.onJob = onJob;
 
@@ -524,6 +580,9 @@ export function mountRecorder(root, { getFields, onJob = () => {} } = {}) {
             ${devices.map((d, i) => `<option value="${esc(d.deviceId)}" ${d.deviceId === deviceId ? "selected" : ""}>${esc(d.label || t("recorder.device_n", { n: i + 1 }))}</option>`).join("")}
           </select>
         </label>`;
+        if (!hasDisplay) {
+          html += `<p class="rec-hint">${esc(t("recorder.no_tab_audio_browser"))}</p>`;
+        }
         if (source !== "microphone") {
           html += `<p class="rec-hint">${esc(t("recorder.tab_hint"))}</p>`;
         }
@@ -539,7 +598,10 @@ export function mountRecorder(root, { getFields, onJob = () => {} } = {}) {
           <span class="rec-time" id="rec-time" role="timer" aria-live="off">0:00</span>
           <span class="rec-src">${esc(sourceLabel(S.source))}</span>
         </div>
-        <div class="rec-meter" aria-hidden="true"><span id="rec-meter-bar"></span></div>
+        ${S.parts?.length
+          ? S.parts.map((part, i) => `<div class="rec-part"><span>${esc(t(`recorder.part_${part.kind}`))}</span>
+              <div class="rec-meter" aria-hidden="true"><span id="rec-meter-bar-${i}"></span></div></div>`).join("")
+          : `<div class="rec-meter" aria-hidden="true"><span id="rec-meter-bar"></span></div>`}
         <p class="rec-sync" id="rec-sync"></p>
         <p class="rec-warn" id="rec-note"></p>
         <div class="rec-actions">
@@ -641,6 +703,10 @@ export function mountRecorder(root, { getFields, onJob = () => {} } = {}) {
     if (time) time.textContent = clock(elapsedMs());
     const bar = $("#rec-meter-bar", panel);
     if (bar) bar.style.width = `${Math.round(S.level * 100)}%`;
+    (S.parts || []).forEach((part, i) => {
+      const partBar = $(`#rec-meter-bar-${i}`, panel);
+      if (partBar) partBar.style.width = `${Math.round(part.level * 100)}%`;
+    });
     const sync = $("#rec-sync", panel);
     if (sync) {
       const waiting = S.pending.length;

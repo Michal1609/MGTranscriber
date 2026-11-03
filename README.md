@@ -23,7 +23,9 @@ unless you choose a cloud engine, so recordings that must stay private stay on y
 - **Transcription with speakers**: [WhisperX](https://github.com/m-bain/whisperX) (Whisper large-v3, word alignment,
   [pyannote](https://github.com/pyannote/pyannote-audio) diarization), plus NVIDIA Parakeet and Canary. Word-level times.
 - **Sources**: local audio/video files, YouTube and other links ([yt-dlp](https://github.com/yt-dlp/yt-dlp)),
-  podcast RSS feeds, and a built-in **recorder** (microphone, in the browser).
+  podcast RSS feeds, and a built-in **recorder** in the browser: the microphone, the audio of a meeting tab
+  or the whole screen, or both. Meeting and screen audio need Chrome or Edge; Firefox and Safari record
+  the microphone only, because they cannot share tab or system audio.
 - **Web UI** with a job queue, live log, full-text search across all transcripts (diacritics-insensitive) and an audio player
   that follows the text.
 - **Editor**: correct text and speakers while the audio plays, undo, split/merge, stored versions,
