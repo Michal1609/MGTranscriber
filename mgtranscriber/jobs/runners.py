@@ -19,6 +19,7 @@ from typing import Callable, Protocol
 from .. import tasks
 from ..config import Settings
 from ..engines import EngineError
+from ..llm.base import LLMError
 from ..pipeline import TranscriptionRequest
 from . import winjob
 
@@ -167,6 +168,9 @@ class InProcessExecution:
             except (EngineError, FileNotFoundError) as e:
                 self.code = 1
                 on_event({"event": "error", "message": str(e)})
+            except LLMError as e:  # user-facing; the UI translates the code
+                self.code = 1
+                on_event({"event": "error", "message": e.message, "code": e.code})
             except Exception as e:
                 self.code = 1
                 on_event({"event": "error", "message": f"{type(e).__name__}: {e}"})

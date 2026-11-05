@@ -15,7 +15,7 @@ from ..config import Settings
 from ..library import Library
 from . import LLMConfig, load_config, make_provider
 from .analysis import analyze
-from .base import AnalysisBusy, Cancelled, LLMError, LLMProvider
+from .base import AnalysisBusy, Cancelled, LLMError, LLMProvider, ensure_has_text
 from .qa import Retriever, ask
 from .store import load_analysis, save_analysis, segments_stamp
 from .transcript import build_turns, speaker_labels
@@ -82,6 +82,7 @@ class AnalysisManager:
               language: str | None = None) -> Run:
         """Validate quickly (so the user sees 'Ollama is not running' at once), then run in the background."""
         self.library.path(transcript_id)  # raises TranscriptNotFound
+        ensure_has_text(self.library, transcript_id)
         if self.closed:
             raise LLMError("The server is shutting down.", "shutting_down")
         cfg = self.config
@@ -154,6 +155,9 @@ class AnalysisManager:
     def on_job_finished(self, job) -> None:
         """JobQueue hook: analyse right after a transcription when the setting ``llm_auto`` is on."""
         if not self.config.auto or job.status != "done" or not job.result:
+            return
+        if getattr(job, "no_speech", False):
+            job.add_log("[analysis not started: no speech was found]")
             return
         if getattr(job.request, "task", "transcribe") != "transcribe":  # e.g. voiceprints jobs reuse the transcript id
             return

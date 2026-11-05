@@ -46,10 +46,12 @@ QUIET_SAVE_S = 600.0  # longest a quiet check's bookkeeping (last_check, history
 
 
 class WatchManager:
-    def __init__(self, settings: Settings, queue, llm=None, clock=time.time, client: httpx.Client | None = None):
+    def __init__(self, settings: Settings, queue, llm=None, clock=time.time, client: httpx.Client | None = None,
+                 library=None):
         self.settings = settings
         self.queue = queue
         self.llm = llm
+        self.library = library or getattr(llm, "library", None)  # where the origin of a finished job is stored
         self.clock = clock
         self.client = client
         self.path = settings.data_dir / "watch.json"
@@ -525,17 +527,53 @@ class WatchManager:
             status = "done" if job.status == "done" else "error"
             entry = self._settle(src, job_id, status, job.result, job.error or (job.status if status == "error" else None))
             self._save()
-        if status == "done" and src.analyze and job.result and self.llm:
+        if status == "done" and job.result:
+            self._record_origin(src, job.result)
+        if status == "done" and job.result and getattr(job, "no_speech", False):
+            self._skip_empty(src, entry, job)
+        elif status == "done" and src.analyze and job.result and self.llm:
             try:
                 self.llm.start(job.result)
                 job.add_log("[analysis started by watch source]")
             except Exception as exc:  # noqa: BLE001
                 job.add_log(f"[analysis not started: {getattr(exc, 'message', exc)}]")
-        if status == "done" and src.translate_to and job.result and self.llm and entry is not None:
+        if status == "done" and src.translate_to and job.result and self.llm and entry is not None                 and not getattr(job, "no_speech", False):
             self._translate(src, entry, job)
         if src.webhook_url:  # own thread: up to ~23 s of retries must not block the queue's other hooks
             threading.Thread(target=self._notify, args=(src, entry or {}, job, status), name="watch-webhook",
                              daemon=True).start()
+
+    def _skip_empty(self, src: Source, entry: dict | None, job) -> None:
+        """No speech in the recording: no analysis and no translation. Recorded on the item, not an error."""
+        skipped = [name for name, wanted in (("analysis", src.analyze), ("translation", src.translate_to)) if wanted]
+        job.add_log("[no speech was found in the recording" + (f": {', '.join(skipped)} skipped]" if skipped else "]"))
+        if entry is not None:
+            with self._lock:
+                entry["no_speech"] = True
+                if src.translate_to:
+                    entry["translation"] = {"language": src.translate_to, "skipped": "no_speech"}
+                self._save()
+
+    def _record_origin(self, src: Source, transcript_id: str) -> None:
+        """Store which watch source made the transcript in its metadata (``extra.watch``), so the detail page
+        still knows it after the source's item list is trimmed or the source is removed."""
+        if not self.library:
+            return
+        try:
+            meta = self.library.metadata(transcript_id)
+            meta.extra["watch"] = {"id": src.id, "name": src.name, "kind": src.kind}
+            self.library.save_metadata(transcript_id, meta)
+        except Exception as exc:  # noqa: BLE001 - bookkeeping only; the transcript itself is done
+            log.warning("origin of %s not stored: %s", transcript_id, exc)
+
+    def origin_of(self, transcript_id: str) -> dict | None:
+        """The watch source a transcript came from, found in the items (for transcripts made before
+        ``extra.watch`` was stored). ``{id, name, kind}`` or None."""
+        with self._lock:
+            for src in self.sources.values():
+                if any(i.get("result") == transcript_id for i in src.items):
+                    return {"id": src.id, "name": src.name, "kind": src.kind}
+        return None
 
     def _translate(self, src: Source, entry: dict, job) -> None:
         """Queue the translation of a finished transcript the same way the detail page does; the outcome

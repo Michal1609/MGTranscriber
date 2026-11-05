@@ -32,6 +32,8 @@
 .jr-source[hidden] { display: none; }
 .jr-translation { margin: 2px 0 0 18px; color: var(--danger, #b45309); font-size: 13px; overflow-wrap: anywhere; }
 .jr-translation[hidden] { display: none; }
+.jr-nospeech { margin: 2px 0 0 18px; color: var(--muted, #6b7280); font-size: 13px; }
+.jr-nospeech[hidden] { display: none; }
 .job-row .steps { margin: 10px 0 0 18px; }
 .job-row .steps[hidden] { display: none; }
 .job-row .job-error { margin-left: 18px; }
@@ -52,5 +54,5 @@
 #j-panel:focus { outline: none; }
 @media (max-width: 640px) {
   .jr-head { flex-wrap: wrap; }
-  .jr-source, .jr-meta, .jr-translation, .jr-actions, .jr-panel, .job-row .steps, .job-row .job-error { margin-left: 0; }
+  .jr-source, .jr-meta, .jr-translation, .jr-nospeech, .jr-actions, .jr-panel, .job-row .steps, .job-row .job-error { margin-left: 0; }
 }

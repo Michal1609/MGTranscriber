@@ -18,6 +18,8 @@ const TEMPLATE = `
     <div class="d-titlebar"><h1 class="d-title"></h1>
       <button type="button" class="btn small danger d-delete" data-i18n="remove.action"></button></div>
     <p class="meta d-meta"></p>
+    <p class="meta d-origin" hidden></p>
+    <p class="meta d-nospeech" role="note" hidden></p>
     <div class="d-folder" hidden></div>
   </header>
 
@@ -57,6 +59,28 @@ const TEMPLATE = `
     <audio class="d-audio" controls preload="metadata"></audio>
     <label class="follow"><input type="checkbox" class="d-follow" checked> <span data-i18n="detail.follow"></span></label>
   </div>`;
+
+const external = (url, text) => `<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">${esc(text)}</a>`;
+
+/** One "Source" line: link to the original, channel, the watch source it came from (or the local file name). */
+function renderOrigin(box, origin) {
+  const parts = [];
+  if (origin?.url) {
+    let host = origin.url;
+    try { host = new URL(origin.url).hostname.replace(/^www\./, ""); } catch { /* keep the whole URL */ }
+    parts.push(`${esc(t("detail.sourceVideo"))}: ${external(origin.url, host)}`);
+  } else if (origin?.file) {
+    parts.push(`${esc(t("detail.sourceFile"))}: <span title="${esc(origin.path || "")}">${esc(origin.file)}</span>`);
+  }
+  if (origin?.channel) {
+    parts.push(`${esc(t("detail.sourceChannel"))}: ${origin.channel_url ? external(origin.channel_url, origin.channel) : esc(origin.channel)}`);
+  }
+  if (origin?.watch) {
+    parts.push(`${esc(t("detail.sourceWatch"))}: <a href="${href("/watch")}">${esc(origin.watch.name || origin.watch.id)}</a>`);
+  }
+  box.hidden = !parts.length;
+  box.innerHTML = parts.length ? `<strong>${esc(t("detail.sourceLabel"))}</strong> ` + parts.map((s) => `<span>${s}</span>`).join("") : "";
+}
 
 function mount(el, { id }, query = {}) {
   el.innerHTML = TEMPLATE;
@@ -106,6 +130,10 @@ function mount(el, { id }, query = {}) {
       t("common.words", { n: data.words }),
       ...(data.metadata?.extra?.separation?.used ? [t("detail.separated")] : [])]
       .map((s) => `<span>${esc(s)}</span>`).join("");
+    renderOrigin(q("d-origin"), data.origin);
+    const quiet = q("d-nospeech");
+    quiet.hidden = !data.no_speech;
+    quiet.textContent = data.no_speech ? t("detail.noSpeech") : "";
 
     q("d-delete").addEventListener("click", async () => {
       const result = await deleteTranscripts([{ id, title: data.title }]);

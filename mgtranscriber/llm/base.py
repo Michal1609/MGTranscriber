@@ -25,6 +25,22 @@ class LLMError(Exception):
             self.code = code
 
 
+class EmptyTranscript(LLMError):
+    """The transcript has no text (no speech was found): there is nothing to translate or analyse."""
+
+    code = "empty_transcript"
+    status = 409
+
+    def __init__(self, message: str = "The transcript is empty (no speech was found)."):
+        super().__init__(message)
+
+
+def ensure_has_text(library, transcript_id: str) -> None:
+    """Raise EmptyTranscript when the transcript has no words; used before any follow-up work is started."""
+    if library.summary(transcript_id).get("no_speech"):
+        raise EmptyTranscript()
+
+
 class ProviderUnavailable(LLMError):
     code = "llm_unreachable"
     status = 503

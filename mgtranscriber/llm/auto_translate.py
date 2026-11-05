@@ -21,6 +21,11 @@ def on_job_finished(queue, llm, library, job) -> None:
     lang = getattr(request, "translate_to", None)
     if not lang or job.status != "done" or not job.result or request.task != "transcribe":
         return
+    if getattr(job, "no_speech", False):  # an empty transcript: nothing to translate, and that is not an error
+        job.translation = {"language": lang, "skipped": "no_speech"}
+        job.add_log(f"[translation to {lang} not queued: no speech was found]")
+        queue.save()
+        return
     try:
         queued = enqueue_translation(queue, llm, library, job.result, lang)
         job.translation = {"language": lang, "job": queued.get("id")}

@@ -584,6 +584,7 @@ class Library:
                 "model": meta.model,
                 "speakers": stats,
                 "words": sum(len(s.text.split()) for s in segments),
+                "no_speech": not any(s.text.strip() for s in segments),  # nothing was recognised (music, silence)
                 "folder": safe_path(meta.folder),
             }
             cached = (stamp, computed)

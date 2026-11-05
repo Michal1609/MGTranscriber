@@ -15,7 +15,7 @@ from pathlib import Path
 from ..fsutil import replace_file
 from ..library import Library, now_iso
 from ..models import Segment
-from .base import LLMError
+from .base import LLMError, ensure_has_text
 from .store import segments_stamp
 
 TRANSLATIONS_DIR = "translations"
@@ -43,6 +43,7 @@ def enqueue_translation(queue, llm, library: Library, transcript_id: str, langua
 
     task = "translate"
     lang = normalize_lang(language)
+    ensure_has_text(library, transcript_id)
     source = (library.metadata(transcript_id).language or "").lower()
     if source and source.split("-")[0] == lang.split("-")[0]:
         error = LLMError("The transcript is already in this language.", "translation_same_language")

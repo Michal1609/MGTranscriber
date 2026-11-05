@@ -346,6 +346,8 @@ class JobQueue:
                     job.add_log(event["message"])
                 data = event.get("data") or {}
                 job.title = data.get("title", job.title)
+                if data.get("no_speech"):
+                    job.no_speech = True
                 if data.get("stage"):
                     self._stages[job.id] = Path(data["stage"])
             elif kind == "log":
@@ -355,6 +357,7 @@ class JobQueue:
                 job.result = event.get("result")
             elif kind == "error":
                 job.error = event.get("message") or "Unknown error."
+                job.error_code = event.get("code")
                 job.add_log(f"Error: {job.error}")
             if phase_changed or kind in {"done", "error"} or time.time() - self._last_save > SAVE_INTERVAL:
                 self._save()

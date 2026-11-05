@@ -39,6 +39,8 @@ class Job:
     upload: bool = False
     # outcome of the form's "Translate to": {language, job} when queued, {language, error} when it could not be
     translation: dict | None = None
+    error_code: str | None = None  # stable code of a user-facing error (translated by the UI), e.g. empty_transcript
+    no_speech: bool = False  # the transcription found no speech: the transcript is kept, but empty
     log_file: Path | None = None  # append-only full log, set by the queue
     done: threading.Event = field(default_factory=threading.Event, repr=False)  # set once the job finished
     _log_lock: threading.Lock = field(default_factory=threading.Lock, repr=False)
@@ -103,12 +105,14 @@ class Job:
             "folder": r.folder,
             "translate_to": r.translate_to,
             "translation": self.translation,
+            "no_speech": self.no_speech,
             "status": self.status,
             "phase": self.phase,
             "percent": self.percent,
             "title": self.title,
             "result": self.result,
             "error": self.error,
+            "error_code": self.error_code,
             "created": self.created,
             "started": self.started,
             "finished": self.finished,
@@ -125,6 +129,8 @@ class Job:
             **({"ephemeral": True} if self.ephemeral else {}),
             **({"upload": True} if self.upload else {}),
             **({"translation": self.translation} if self.translation else {}),
+            **({"no_speech": True} if self.no_speech else {}),
+            **({"error_code": self.error_code} if self.error_code else {}),
         }
 
     @classmethod
@@ -135,6 +141,7 @@ class Job:
             result=data.get("result"), error=data.get("error"), created=data.get("created", time.time()),
             started=data.get("started"), finished=data.get("finished"), attempts=data.get("attempts", 0),
             ephemeral=data.get("ephemeral", False), upload=bool(data.get("upload", False)), translation=data.get("translation"),
+            no_speech=bool(data.get("no_speech", False)), error_code=data.get("error_code"),
             # stores written before log files existed carry the log inline
             log=list(data.get("log", [])), log_dropped=data.get("log_dropped", 0),
         )

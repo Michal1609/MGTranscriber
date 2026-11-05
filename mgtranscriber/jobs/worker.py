@@ -33,6 +33,7 @@ def main() -> int:
 
     from ..config import Settings
     from ..engines import EngineError
+    from ..llm.base import LLMError
     from ..pipeline import TranscriptionRequest
     from ..tasks import execute
 
@@ -44,6 +45,9 @@ def main() -> int:
         result = execute(request, settings, progress=lambda p: emit(event="progress", **p.to_dict()))
     except (EngineError, FileNotFoundError) as e:
         emit(event="error", message=str(e))
+        return 1
+    except LLMError as e:  # a problem the user can act on: its code is translated by the UI, no traceback
+        emit(event="error", message=e.message, code=e.code)
         return 1
     except Exception as e:
         traceback.print_exc()

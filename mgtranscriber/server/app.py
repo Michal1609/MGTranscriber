@@ -82,7 +82,7 @@ def create_app(settings: Settings | None = None, queue: JobQueue | None = None, 
     app.state.library.listeners.append(app.state.search.reindex)  # renames, edits
     app.state.queue.on_finished.append(lambda job: job.result and app.state.search.reindex(job.result))
     app.state.llm = AnalysisManager(settings, app.state.library)
-    app.state.watch = WatchManager(settings, app.state.queue, app.state.llm)
+    app.state.watch = WatchManager(settings, app.state.queue, app.state.llm, library=app.state.library)
     app.state.queue.on_finished.append(app.state.watch.on_job_finished)
     app.state.queue.on_finished.append(app.state.llm.on_job_finished)  # setting llm_auto: analyse after transcribing
     app.state.queue.on_finished.append(  # "Translate to" of the new-transcription form

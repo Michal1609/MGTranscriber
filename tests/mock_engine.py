@@ -30,6 +30,8 @@ class MockEngine(Engine):
             if "slow" in name:
                 time.sleep(0.1)
             progress(Progress(Phase.TRANSCRIBE, 100 * (i + 1) / steps))
+        if "nospeech" in name:  # music only: the engine finds nothing
+            return TranscriptionResult([], language=options.language or "en", duration=5.0, model="mock-1")
         segments = SEGMENTS if options.diarize else [Segment(s.start, s.end, s.text) for s in SEGMENTS]
         return TranscriptionResult(segments, language=options.language or "en", duration=5.0, model="mock-1")
 

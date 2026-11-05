@@ -147,7 +147,10 @@ def run(request: TranscriptionRequest, settings: Settings, progress: ProgressCal
         raise
     # voice memory: store speaker embeddings, name known voices (never raises)
     voices.after_transcription(library, transcript_id, result.speaker_embeddings, settings)
-    progress(Progress(Phase.WRITING, 100, data={"result": transcript_id}))
+    no_speech = not any(s.text.strip() for s in result.segments)
+    if no_speech:
+        progress(Progress(Phase.WRITING, message="[no speech found in the recording: the transcript is empty]"))
+    progress(Progress(Phase.WRITING, 100, data={"result": transcript_id, **({"no_speech": True} if no_speech else {})}))
     return transcript_id
 
 

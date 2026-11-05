@@ -1,9 +1,10 @@
 """The transcript library: list, detail, speaker names, exports and audio."""
 
+import re
 from dataclasses import replace
-from urllib.parse import quote
+from urllib.parse import quote, urlsplit
 
-from fastapi import APIRouter, Query, Response
+from fastapi import APIRouter, Query, Request, Response
 from fastapi.responses import FileResponse
 
 from ... import privacy
@@ -13,6 +14,7 @@ from ...library import AUDIO_TYPES, SEGMENTS_FILE
 from ...models import speaker_of
 from ..deps import LibraryDep
 from ..errors import ApiError
+from .setup import client_is_local
 
 router = APIRouter(prefix="/api/transcripts", tags=["transcripts"])
 
@@ -39,12 +41,56 @@ def list_transcripts(library: LibraryDep, response: Response, folder: str | None
     return items[offset:] if limit is None else items[offset:offset + limit]
 
 
+def _http_url(value) -> str | None:
+    """Only http(s) links are offered to the page (never javascript:, data:, file: ...)."""
+    if isinstance(value, str) and value.strip()[:8].lower().startswith(("http://", "https://")):
+        parts = urlsplit(value.strip())
+        if parts.scheme in ("http", "https") and parts.netloc:
+            return value.strip()
+    return None
+
+
+def _text(value, limit: int = 300) -> str | None:
+    return value.strip()[:limit] or None if isinstance(value, str) else None
+
+
+def build_origin(meta, watch: dict | None, full_paths: bool) -> dict | None:
+    """Where a transcript came from, for the detail page: ``{url, file, channel, channel_url, watch}`` with only
+    the known keys; None when nothing is known (recordings, uploads). A local source is shown as its file name,
+    the full path only to this computer (``full_paths``)."""
+    info = meta.extra.get("source_info") if isinstance(meta.extra.get("source_info"), dict) else {}
+    origin: dict = {}
+    url = _http_url(info.get("webpage_url")) or _http_url(meta.source)
+    if url:
+        origin["url"] = url
+    elif meta.source and not meta.extra.get("uploaded_via"):  # an upload's source is a temporary server path
+        name = _text(meta.source.replace("\\", "/").rstrip("/").rsplit("/", 1)[-1])
+        if name and not re.match(r"^[A-Za-z][A-Za-z0-9+.-]+:", meta.source):
+            origin["file"] = name
+            if full_paths:
+                origin["path"] = meta.source
+    channel = _text(info.get("channel")) or _text(info.get("uploader"))
+    if channel:
+        origin["channel"] = channel
+        channel_url = _http_url(info.get("channel_url")) or _http_url(info.get("uploader_url"))
+        if channel_url:
+            origin["channel_url"] = channel_url
+    if isinstance(watch, dict) and watch.get("id"):
+        origin["watch"] = {"id": str(watch["id"]), "name": _text(watch.get("name")) or "", "kind": str(watch.get("kind") or "")}
+    return origin or None
+
+
 @router.get("/{transcript_id}")
-def get_transcript(transcript_id: str, library: LibraryDep):
+def get_transcript(transcript_id: str, library: LibraryDep, request: Request):
     summary = library.summary(transcript_id)
     meta = library.metadata(transcript_id)
+    watch = meta.extra.get("watch")
+    if not watch:
+        manager = getattr(request.app.state, "watch", None)
+        watch = manager.origin_of(transcript_id) if manager else None
     return {
         **summary,
+        "origin": build_origin(meta, watch, client_is_local(request)),
         "metadata": meta.to_dict(),
         "segments": [
             {"start": s.start, "end": s.end, "speaker": speaker_of(s), "text": s.text.strip()}

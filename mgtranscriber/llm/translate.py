@@ -198,7 +198,7 @@ def translate_task(request, settings, progress, library) -> str:
     from ..progress import Phase
     from ..progress import Progress as Event
     from . import load_config, make_provider
-    from .base import LLMError
+    from .base import EmptyTranscript
     from .store import segments_stamp
     from .translations import normalize_lang, save_translation
 
@@ -217,7 +217,7 @@ def translate_task(request, settings, progress, library) -> str:
     segments = library.segments(transcript_id)
     names = library.names(transcript_id)
     if not any(s.text.strip() for s in segments):
-        raise LLMError("The transcript is empty.", "empty_transcript")
+        raise EmptyTranscript()
 
     def report(percent: float, message: str) -> None:
         progress(Event("translate", percent, message))

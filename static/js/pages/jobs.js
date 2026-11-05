@@ -1,7 +1,7 @@
 // Jobs: running and waiting jobs, history, retry, remove. Server-side filters and paging (GET /api/jobs).
 
 import { api } from "../core/api.js";
-import { applyI18n, t } from "../core/i18n.js";
+import { applyI18n, has, t } from "../core/i18n.js";
 import { href, isCurrent, registerPage } from "../core/router.js";
 import { refreshSummary } from "../core/jobsummary.js";
 import { $, date, esc, shortClock, toast } from "../core/util.js";
@@ -74,6 +74,7 @@ function mount(el, params, query) {
       </div>
       <p class="jr-source"></p>
       <p class="jr-meta"></p>
+      <p class="jr-nospeech" role="note" hidden></p>
       <p class="jr-translation" role="note" hidden></p>
       <div class="steps" hidden></div>
       <div class="job-error" hidden>
@@ -138,12 +139,21 @@ function mount(el, params, query) {
     tr.hidden = !job.translation?.error;
     tr.textContent = job.translation?.error ? t("jobs.translation_failed", { lang: langName(job.translation.language), reason: job.translation.error }) : "";
 
+    const quiet = q(".jr-nospeech"); // the recording had no speech: the transcript is kept, but empty
+    quiet.hidden = !job.no_speech;
+    quiet.textContent = job.no_speech ? t("jobs.no_speech") : "";
+    if (job.translation?.skipped) {
+      tr.hidden = false;
+      tr.textContent = t("jobs.translation_skipped", { lang: langName(job.translation.language) });
+    }
+
     const steps = q(".steps");
     steps.hidden = job.status !== "running";
     if (job.status === "running") steps.innerHTML = stepsHtml(job);
 
     const err = q(".job-error");
-    const { headline, details } = errorParts(job.error);
+    const { headline: raw, details } = errorParts(job.error);
+    const headline = job.error_code && has(`errors.${job.error_code}`) ? t(`errors.${job.error_code}`) : raw;
     err.hidden = !job.error;
     q(".je-text").textContent = headline;
     q(".je-details").hidden = !details;

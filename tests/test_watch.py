@@ -503,7 +503,7 @@ def _translating(wsettings, queue, clock, feed_server, translate_to, transcript_
 
     llm = SimpleNamespace(
         start=lambda tid: None,
-        library=SimpleNamespace(metadata=lambda tid: SimpleNamespace(language=transcript_lang)),
+        library=SimpleNamespace(metadata=lambda tid: SimpleNamespace(language=transcript_lang), summary=lambda tid: {"no_speech": False}),
         provider=lambda provider=None, model=None: SimpleNamespace(check=check))
     m = WatchManager(wsettings, queue, llm, clock=clock)
     base = feed_server["url"]
